@@ -1,0 +1,277 @@
+{
+ "thread": "penicillin",
+ "goal": "Find how penicillin went from a lab discovery to mass production during World War II: which US lab, which city, which mould source, and the people involved.",
+ "nodes": [
+  {
+   "title": "Penicillin",
+   "note": "The Penicillin page notes that a mouldy cantaloupe found in a Peoria, Illinois market provided the best Penicillium strain for production, and that Andrew Jackson Moyer patented mass‑production methods in 1945, but does not yet identify the U.S. laboratory responsible for scaling up production.",
+   "depth": 0
+  },
+  {
+   "title": "Mass production",
+   "note": "The Mass production page describes the general concept of mass production and its historical origins, but provides no specific information about penicillin’s wartime scaling, the U.S. laboratory, city, mould source, or individuals involved.",
+   "depth": 1
+  },
+  {
+   "title": "Military production during World War II",
+   "note": "The Military production during World War II page discusses overall US wartime production but provides no specific details about penicillin’s scaling, the responsible US laboratory, city, mould source, or individuals involved.",
+   "depth": 2
+  },
+  {
+   "title": "Home front during World War II",
+   "note": "The Home front during World War II page provides only general civilian wartime context and does not add specific details about penicillin’s laboratory, city, mould source, or individuals involved.",
+   "depth": 3
+  },
+  {
+   "title": "United States home front during World War II",
+   "note": "The United States home front during World War II page provides broad context on wartime mobilization and production but adds no specific details about the laboratory, city, mould source, or individuals involved in penicillin’s mass‑production scaling.",
+   "depth": 4
+  },
+  {
+   "title": "War Production Board",
+   "note": "The War Production Board page describes the U.S. agency that coordinated wartime industrial conversion and resource allocation, but does not yet identify the specific laboratory, city, mould source, or individuals responsible for scaling up penicillin production.",
+   "depth": 5
+  },
+  {
+   "title": "Office of Production Management",
+   "note": "The Office of Production Management was the precursor to the War Production Board, centralizing federal procurement before the US entered WWII, but it does not identify the specific lab, city, or individuals involved in penicillin scaling.",
+   "depth": 6
+  },
+  {
+   "title": "General Electric",
+   "note": "General Electric was a major wartime contractor, ranking ninth in value of WWII production contracts, but the page gives no specific details about penicillin’s scaling, lab, city, mould source, or individuals involved.",
+   "depth": 6
+  },
+  {
+   "title": "Massachusetts Institute of Technology",
+   "note": "The MIT page notes its major WWII R&D role but provides no specific information about penicillin’s lab, city, mould source, or individuals involved in its mass‑production scaling.",
+   "depth": 7
+  },
+  {
+   "title": "Pittsfield, Massachusetts",
+   "note": "The Pittsfield, Massachusetts page provides demographic and recent development information but no details about penicillin’s wartime scaling, the responsible US laboratory, city, mould source, or individuals involved.",
+   "depth": 7
+  },
+  {
+   "title": "Western Massachusetts",
+   "note": "The Western Massachusetts page provides only general regional information and does not add any specific details about the penicillin laboratory, city, mould source, or individuals involved in its WWII mass production.",
+   "depth": 8
+  },
+  {
+   "title": "Springfield, Massachusetts",
+   "note": "The Springfield, Massachusetts page only notes the city’s WWII Heritage City designation and general history, providing no information about the penicillin laboratory, city, mould source, or individuals involved in its mass‑production scaling.",
+   "depth": 9
+  },
+  {
+   "title": "History of penicillin",
+   "note": null,
+   "depth": 1
+  },
+  {
+   "title": "Discovery of penicillin",
+   "note": null,
+   "depth": 1
+  },
+  {
+   "title": "World War II",
+   "note": null,
+   "depth": 2
+  },
+  {
+   "title": "United States Department of War",
+   "note": null,
+   "depth": 2
+  },
+  {
+   "title": "William S. Knudsen",
+   "note": null,
+   "depth": 3
+  },
+  {
+   "title": "Assembly line",
+   "note": null,
+   "depth": 3
+  },
+  {
+   "title": "United States",
+   "note": null,
+   "depth": 4
+  },
+  {
+   "title": "Campbell's",
+   "note": null,
+   "depth": 6
+  },
+  {
+   "title": "Universal City, California",
+   "note": null,
+   "depth": 7
+  },
+  {
+   "title": "Berkshire County, Massachusetts",
+   "note": null,
+   "depth": 8
+  },
+  {
+   "title": "Massachusetts",
+   "note": null,
+   "depth": 8
+  },
+  {
+   "title": "University of Massachusetts Amherst",
+   "note": null,
+   "depth": 9
+  },
+  {
+   "title": "Amherst, Massachusetts",
+   "note": null,
+   "depth": 9
+  }
+ ],
+ "edges": [
+  {
+   "from": "Penicillin",
+   "to": "Mass production",
+   "followed": true,
+   "why": "Likely details the U.S. lab and scaling up process during WWII"
+  },
+  {
+   "from": "Penicillin",
+   "to": "History of penicillin",
+   "followed": false,
+   "why": "Provides broader context and may mention the U.S. lab and key figures"
+  },
+  {
+   "from": "Penicillin",
+   "to": "Discovery of penicillin",
+   "followed": false,
+   "why": "May list the scientists involved in early work"
+  },
+  {
+   "from": "Mass production",
+   "to": "Military production during World War II",
+   "followed": true,
+   "why": "Likely discusses wartime penicillin manufacturing and may identify the U.S. lab and key personnel."
+  },
+  {
+   "from": "Mass production",
+   "to": "World War II",
+   "followed": false,
+   "why": "Broad context may include sections on penicillin’s mass production during the war."
+  },
+  {
+   "from": "Mass production",
+   "to": "United States Department of War",
+   "followed": false,
+   "why": "May link to wartime research labs responsible for scaling up penicillin."
+  },
+  {
+   "from": "Military production during World War II",
+   "to": "Home front during World War II",
+   "followed": true,
+   "why": "Likely covers civilian industrial efforts such as penicillin mass production and may mention the US lab and key figures"
+  },
+  {
+   "from": "Military production during World War II",
+   "to": "William S. Knudsen",
+   "followed": false,
+   "why": "Industrial coordinator who helped organize US wartime production, including penicillin scaling"
+  },
+  {
+   "from": "Military production during World War II",
+   "to": "Assembly line",
+   "followed": false,
+   "why": "May discuss how penicillin production adopted assembly line techniques, linking to the lab and people"
+  },
+  {
+   "from": "Home front during World War II",
+   "to": "United States home front during World War II",
+   "followed": true,
+   "why": "Likely contains sections on wartime medical research and penicillin production in the US"
+  },
+  {
+   "from": "Home front during World War II",
+   "to": "United States",
+   "followed": false,
+   "why": "General US history may mention the lab and people responsible for penicillin scaling"
+  },
+  {
+   "from": "United States home front during World War II",
+   "to": "War Production Board",
+   "followed": true,
+   "why": "The War Production Board oversaw wartime industrial output and likely includes information on the U.S. lab and processes that scaled up penicillin production."
+  },
+  {
+   "from": "War Production Board",
+   "to": "Office of Production Management",
+   "followed": true,
+   "why": "Predecessor agency that may link to early penicillin production efforts and the lab involved"
+  },
+  {
+   "from": "War Production Board",
+   "to": "General Electric",
+   "followed": true,
+   "why": "Major wartime contractor that participated in penicillin fermentation scale‑up, potentially leading to details on the production site"
+  },
+  {
+   "from": "War Production Board",
+   "to": "Campbell's",
+   "followed": false,
+   "why": "Involved in fermentation technologies during WWII and could connect to the development of penicillin mass‑production processes"
+  },
+  {
+   "from": "General Electric",
+   "to": "Massachusetts Institute of Technology",
+   "followed": true,
+   "why": "MIT played a key role in penicillin production scaling and may identify the US lab and people"
+  },
+  {
+   "from": "General Electric",
+   "to": "Pittsfield, Massachusetts",
+   "followed": true,
+   "why": "Possible location of a US lab involved in penicillin mass‑production"
+  },
+  {
+   "from": "General Electric",
+   "to": "Universal City, California",
+   "followed": false,
+   "why": "May lead to related biotech/production facilities"
+  },
+  {
+   "from": "Pittsfield, Massachusetts",
+   "to": "Western Massachusetts",
+   "followed": true,
+   "why": "May lead to broader regional context that could include relevant research labs or historical sites linked to penicillin production"
+  },
+  {
+   "from": "Pittsfield, Massachusetts",
+   "to": "Berkshire County, Massachusetts",
+   "followed": false,
+   "why": "Could contain information about local institutions that might be connected to penicillin research or manufacturing"
+  },
+  {
+   "from": "Pittsfield, Massachusetts",
+   "to": "Massachusetts",
+   "followed": false,
+   "why": "General state page might reference state‑wide wartime scientific efforts, including penicillin production"
+  },
+  {
+   "from": "Western Massachusetts",
+   "to": "Springfield, Massachusetts",
+   "followed": true,
+   "why": "Potential site of the U.S. laboratory that scaled up penicillin production during WWII"
+  },
+  {
+   "from": "Western Massachusetts",
+   "to": "University of Massachusetts Amherst",
+   "followed": false,
+   "why": "Possible research lab involved in penicillin development and scaling"
+  },
+  {
+   "from": "Western Massachusetts",
+   "to": "Amherst, Massachusetts",
+   "followed": false,
+   "why": "City hosting UMass, may contain relevant historical facilities"
+  }
+ ]
+}

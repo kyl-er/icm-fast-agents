@@ -1,0 +1,17 @@
+.env
+keys.env
+*.env
+!.env.example
+node_modules/
+target/
+__pycache__/
+.venv/
+04-traces/live/
+06-email/data/*.sqlite*
+06-email/data/raw/
+*.parquet
+.DS_Store
+vault/.obsidian/workspace*
+scratch/
+06-email/data/_raw/
+06-email/04-rounds/round-9/

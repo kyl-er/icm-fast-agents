@@ -1,0 +1,5 @@
+target/
+out/*
+!out/example-3/
+!out/example-6/
+!out/example-prd-3/

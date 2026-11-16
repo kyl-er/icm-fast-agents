@@ -1,0 +1,40 @@
+{"q": "where on this machine is a file called hyprland.conf", "a": "plocate"}
+{"q": "find every file named Cargo.lock anywhere on disk", "a": "plocate"}
+{"q": "is there a file with 'invoice' in its name somewhere in my home folder, I don't know which folder", "a": "plocate"}
+{"q": "locate libssl.so on the system", "a": "plocate"}
+{"q": "list the python files under 03-harness changed in the last day", "a": "fd"}
+{"q": "which files in this project are bigger than 1 MB", "a": "fd"}
+{"q": "all .toml files inside 01-config", "a": "fd"}
+{"q": "find directories named node_modules below ~/03-Projects", "a": "fd"}
+{"q": "which file in this repo contains the string max_invalid_tool_call_retries", "a": "rg"}
+{"q": "show the lines that mention DEEPGRAM_API_KEY in the screen source", "a": "rg"}
+{"q": "where do we define the function new_run_id", "a": "rg"}
+{"q": "count how many times 'tool_end' appears in the trace schema doc", "a": "rg"}
+{"q": "I have a list of 5000 paths in paths.txt, pick the ones that look most like 'emailpipe'", "a": "fzf"}
+{"q": "rank these file names by how closely they match the fuzzy guess 'rgstry'", "a": "fzf"}
+{"q": "show me the folder layout of 06-email two levels deep", "a": "eza"}
+{"q": "what are the newest items in the 04-traces folder", "a": "eza"}
+{"q": "give me a tree of the 02-agent directory", "a": "eza"}
+{"q": "which subfolder of this repo takes the most space", "a": "eza"}
+{"q": "list only the source files that are tracked in this repository, no build output", "a": "git"}
+{"q": "search the tracked files of this repo for 'bwrap', skipping vendored junk", "a": "git"}
+{"q": "which files changed in the last commit", "a": "git"}
+{"q": "what did I decide last week about the AgentOS folder layout", "a": "ctxq"}
+{"q": "find the session where the cursor swarm was built", "a": "ctxq"}
+{"q": "which past chat talked about Deepgram voice orchestration", "a": "ctxq"}
+{"q": "is there a Kaneo task about the ctx REST API and what is its status", "a": "ctxq"}
+{"q": "what was the outcome of the session that surveyed fast web fetch CLIs", "a": "ctxq"}
+{"q": "give me the command to resume the conversation about the model registry", "a": "ctxq"}
+{"q": "find the official documentation site for the rig rust crate", "a": "websearch"}
+{"q": "who maintains the swarms-rs project", "a": "websearch"}
+{"q": "what are good sources about the Enron bankruptcy timeline", "a": "websearch"}
+{"q": "look up what bubblewrap is and where its repo lives", "a": "websearch"}
+{"q": "read https://www.rig.rs/ and tell me what it says about providers", "a": "fetchmd"}
+{"q": "turn https://en.wikipedia.org/wiki/ReAct_(software) into markdown and save it", "a": "fetchmd"}
+{"q": "what does the page at https://docs.typesafe.ai/primitives say about Noul", "a": "fetchmd"}
+{"q": "scrape this article to text: https://example.com/post/42", "a": "fetchmd"}
+{"q": "how many stars does the GitHub repo 0xPlaygrounds/rig have, use the API", "a": "curl-jq"}
+{"q": "get the 'extract' field from https://en.wikipedia.org/api/rest_v1/page/summary/Houston", "a": "curl-jq"}
+{"q": "is https://example.com up and how fast does it answer", "a": "curl-jq"}
+{"q": "call the ctx health endpoint and show me the status field of the JSON", "a": "curl-jq"}
+{"q": "fetch https://api.github.com/repos/langchain-ai/langgraph and print the open issue count", "a": "curl-jq"}

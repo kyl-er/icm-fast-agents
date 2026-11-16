@@ -1,0 +1,61 @@
+# Runnable example tasks. One [[task]] per example. `expect` is a list of regexes (case-insensitive) that must all
+# match the agent's final answer for the run to count as a success. `file` must exist; `file_contains` (regex) and
+# `file_min_lines` check what was saved, so an error page does not pass.
+#   bin/agent --task web-1            bin/agent --list
+
+[[task]]
+id = "web-1"
+category = "web"
+prompt = "Search the web for the Rust library 'rig' for building LLM agents. Give the URL of its official GitHub repository."
+expect = ["github\\.com/0xplaygrounds/rig"]
+
+[[task]]
+id = "web-2"
+category = "web"
+prompt = "Fetch https://en.wikipedia.org/wiki/Enron and tell me the year Enron filed for bankruptcy and the US city where it was headquartered."
+expect = ["2001", "houston"]
+
+[[task]]
+id = "web-3"
+category = "web"
+prompt = "Scrape https://docs.rs/rig-core/latest/rig_core/ to markdown, save it as scratch/rig-core.md, and tell me how many lines the file has."
+expect = ["\\d+"]
+file = "scratch/rig-core.md"
+file_contains = "(?i)completion"   # the real crate page, not an error page
+file_min_lines = 40
+
+[[task]]
+id = "files-1"
+category = "files"
+prompt = "In this repo, find the model registry file models.toml. Give its path and how many [models.*] entries it has."
+expect = ["01-config/models\\.toml", "\\b39\\b"]
+
+[[task]]
+id = "files-2"
+category = "files"
+prompt = "Somewhere under ~/03-Projects/ai-infra there is a Rust source file that builds the bubblewrap (bwrap) sandbox arguments. Give its full path."
+expect = ["sandbox\\.rs"]
+
+[[task]]
+id = "files-3"
+category = "files"
+prompt = "Which file in this repo documents the trace event format, and which event kinds does it define? List the kinds."
+expect = ["04-traces/SCHEMA\\.md", "tool_end", "run_end", "decision"]
+
+[[task]]
+id = "memory-1"
+category = "memory"
+prompt = "From session memory: find the past session about the 'cursor swarm'. Give its id, its date and one sentence on what was done."
+expect = ["9935e4c3"]
+
+[[task]]
+id = "memory-2"
+category = "memory"
+prompt = "From session memory: in which past session was a voice-controlled orchestrator with Deepgram worked on? Give the session id and its outcome."
+expect = ["88950d46"]
+
+[[task]]
+id = "memory-3"
+category = "memory"
+prompt = "From session memory: find the session that built the read-only REST API for the ctx engine (CTX-30). Give the command that resumes it."
+expect = ["claude --resume 253a4900"]

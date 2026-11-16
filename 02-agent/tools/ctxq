@@ -1,0 +1,38 @@
+#!/usr/bin/env python3
+"""ctxq: session memory lookup (the local ctx API, http://127.0.0.1:8978/v1), compact output for small models.
+  ctxq search "words" [k=5] [kind]   ranked hits: id | date | kind | title        kind: session|note|file|task
+  ctxq show ID                       short brief of one document (summary, key excerpts)
+  ctxq read ID [around=N]            one page of the transcript near turn N
+Flow: search -> show the best id -> read only if the brief is not enough. Always say which id you used."""
+import json, os, sys, urllib.parse, urllib.request
+BASE = os.environ.get('CTX_API', 'http://127.0.0.1:8978/v1')
+def get(path, **q):
+    q = {k: v for k, v in q.items() if v}
+    with urllib.request.urlopen(BASE + path + ('?' + urllib.parse.urlencode(q) if q else ''), timeout=30) as r: return json.load(r)
+def walk(o, cap, depth=0):
+    out = []
+    if isinstance(o, dict):
+        for k, v in o.items():
+            if v in (None, '', [], {}) or k in ('index', 'filters', 'score', 'why', 'next', 'offset'): continue
+            if isinstance(v, (dict, list)): out.append('  ' * depth + f'{k}:'); out += walk(v, cap, depth + 1)
+            else: out.append('  ' * depth + f'{k}: {str(v)[:cap]}')
+    elif isinstance(o, list):
+        for v in o[:12]:
+            if isinstance(v, (dict, list)): out += walk(v, cap, depth); out.append('')
+            else: out.append('  ' * depth + f'- {str(v)[:cap]}')
+    return out
+a = sys.argv[1:]
+if not a or a[0] in ('-h', '--help'): print(__doc__); sys.exit(0)
+try:
+    if a[0] == 'search':
+        d = get('/search', q=a[1], k=a[2] if len(a) > 2 else 5, kind=a[3] if len(a) > 3 else None, budget=1500)
+        print(f"# {d.get('total')} hits for: {a[1]}")
+        for r in d['results']: print(f"{r['id']} | {r.get('date')} | {r.get('kind')} | {(r.get('title') or '')[:90]}")
+    elif a[0] == 'show':
+        print('\n'.join(walk(get('/docs/' + urllib.parse.quote(a[1])), 400))[:3000])
+    elif a[0] == 'read':
+        n = a[2].split('=')[-1] if len(a) > 2 else None
+        print('\n'.join(walk(get('/docs/' + urllib.parse.quote(a[1]) + '/read', around=n, budget=2500), 700))[:3500])
+    else: print(__doc__); sys.exit(2)
+except Exception as e:
+    print(f'ctxq error: {e}'); sys.exit(1)

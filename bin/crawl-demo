@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# bin/crawl-demo: the wiki crawler (08-crawl) on its shipped example, thread "enron".
+#   bin/crawl-demo                  fresh crawl from "Enron" towards the weather-derivatives goal
+#   bin/crawl-demo --resume         continue thread "enron" from its last checkpoint
+#   bin/crawl-demo --stop-after 4   fresh crawl that stops after 4 pages, then resumes it to the end
+#   bin/crawl-demo --example penicillin [--resume | --stop-after N]    the second example
+# Any other flags go to 08-crawl/crawl.py (see 08-crawl/crawl.py --help).
+set -euo pipefail
+cd "$(dirname "$0")/.."
+PY=.venv/bin/python
+EX=enron
+ARGS=()
+STOP=""
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --example) EX="$2"; shift 2 ;;
+    --stop-after) STOP="$2"; shift 2 ;;
+    *) ARGS+=("$1"); shift ;;
+  esac
+done
+if [ -n "$STOP" ]; then
+  echo "== part 1: fresh crawl, stopping after $STOP pages ==" >&2
+  $PY 08-crawl/crawl.py --example "$EX" --stop-after "$STOP" ${ARGS[@]+"${ARGS[@]}"}
+  echo "== checkpoint of thread $EX ==" >&2
+  $PY 08-crawl/crawl.py --show "$EX"
+  echo "== part 2: resume ==" >&2
+  exec $PY 08-crawl/crawl.py --example "$EX" --resume ${ARGS[@]+"${ARGS[@]}"}
+fi
+exec $PY 08-crawl/crawl.py --example "$EX" ${ARGS[@]+"${ARGS[@]}"}

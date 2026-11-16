@@ -1,0 +1,86 @@
+{
+ "round": 1,
+ "tag": "heldout",
+ "schema": "v1",
+ "emails": 60,
+ "modes": {
+  "extract+jev": {
+   "runs": 60,
+   "errors": 0,
+   "labels": {
+    "info": 23,
+    "action": 20,
+    "bulk": 8,
+    "meeting": 5,
+    "personal": 4
+   },
+   "median_ms": 1594,
+   "p90_ms": 8095,
+   "cost_per_email_usd": 0.000256,
+   "cost_total_usd": 0.0153,
+   "gold_n": 60,
+   "triage_acc": 0.65,
+   "triage_acc_answered": 0.65,
+   "gold_misses_marked_hard": 10,
+   "gold_misses": 21,
+   "triage_acc_lenient": 0.817,
+   "needs_reply_acc": 0.917,
+   "conf_median": 0.98,
+   "acc_conf_high": 0.727,
+   "acc_conf_low": 0.556
+  },
+  "llm": {
+   "runs": 60,
+   "errors": 0,
+   "labels": {
+    "info": 20,
+    "bulk": 15,
+    "action": 15,
+    "personal": 6,
+    "meeting": 4
+   },
+   "median_ms": 1010,
+   "p90_ms": 2584,
+   "cost_per_email_usd": 0.000179,
+   "cost_total_usd": 0.0107,
+   "gold_n": 60,
+   "triage_acc": 0.783,
+   "triage_acc_answered": 0.783,
+   "gold_misses_marked_hard": 9,
+   "gold_misses": 13,
+   "triage_acc_lenient": 0.917,
+   "needs_reply_acc": 0.817
+  },
+  "jev": {
+   "runs": 60,
+   "errors": 0,
+   "labels": {
+    "info": 24,
+    "action": 22,
+    "bulk": 5,
+    "personal": 5,
+    "meeting": 4
+   },
+   "median_ms": 184,
+   "p90_ms": 218,
+   "cost_per_email_usd": 3.5e-05,
+   "cost_total_usd": 0.0021,
+   "gold_n": 60,
+   "triage_acc": 0.6,
+   "triage_acc_answered": 0.6,
+   "gold_misses_marked_hard": 11,
+   "gold_misses": 24,
+   "triage_acc_lenient": 0.75,
+   "needs_reply_acc": 0.85,
+   "conf_median": 0.81,
+   "acc_conf_high": 0.767,
+   "acc_conf_low": 0.433
+  }
+ },
+ "agreement": {
+  "extract+jev vs llm": 0.7,
+  "extract+jev vs jev": 0.75,
+  "llm vs jev": 0.667
+ },
+ "all_agree": 0.583
+}

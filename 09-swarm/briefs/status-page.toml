@@ -1,0 +1,27 @@
+# A structured brief for the swarm. The orchestrator turns it into exactly N components, one per agent.
+name = "status-page"
+kind = "ui"                          # ui: HTML fragments -> index.html   |   prd: Markdown sections -> PRD.md
+title = "Fast agents status dashboard"
+goal = "A one-page status dashboard for the ICM fast-agent demo: one screen that tells a visitor whether the agents work, how fast they are and what they cost."
+audience = "Engineers and curious visitors opening the demo repo for the first time. They read it in under a minute."
+tone = "Plain black on white. No colour except black, white and greys. System font. No decoration, no icons, no emoji."
+class_prefix = "fa-"
+
+must_show = [
+  "Page header: the title, a one-line description and the date of the last run (2026-11-16)",
+  "Health summary: 9 of 9 example tasks pass on the rig harness, 9 of 9 on the LangChain fallback",
+  "Models table: model alias, provider, median call latency, price per 1M tokens in/out (gpt-oss-120b on Cerebras, ~1 s, $0.35/$0.75; mercury-3 on Inception, latency 'n/a', $0.10/$0.35)",
+  "Recent runs list, exactly these five rows (task, harness, steps, wall, result): web-1 rig 4 3.1 s pass; files-1 rig 3 2.2 s pass; memory-1 langchain 5 4.8 s pass; web-2 langchain 6 6.0 s pass; swarm status-page-6 swarms-rs 7 2.8 s pass",
+  "Cost panel: total spend today $0.06, cost per task about $0.007, cheapest model mercury-3 ($0.10/$0.35 per 1M tokens)",
+  "Footer: where traces live (04-traces/live, 04-traces/saved) and how to replay one (bin/replay web_2)",
+]
+
+constraints = [
+  "One self-contained HTML fragment per component. No <html>, <head> or <body> tags: the assembler supplies the page shell.",
+  "No external assets: no <link>, no <img src=http...>, no @import, no web fonts.",
+  "No JavaScript at all and no JS frameworks. No <script> tags.",
+  "Every class name starts with the shared prefix fa-. A component may include one small <style> block whose selectors use only its own fa- classes; never restyle .fa-component (the page shell owns it).",
+  "The root element of each fragment is <section class=\"fa-component\" data-component=\"<id>\">.",
+  "Use only the shared CSS variables for colour and spacing; never hard-code a colour other than black, white or a grey.",
+  "Static content only: use the numbers in this brief, never invent live data feeds.",
+]

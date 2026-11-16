@@ -1,0 +1,231 @@
+{
+  "run": "20261116-024321-swarm_prd_3_gpt_oss_120b",
+  "brief": "prd",
+  "kind": "prd",
+  "agents": 3,
+  "model": "gpt-oss-120b",
+  "provider": "cerebras",
+  "harness": "swarms-rs 0.3.0",
+  "ok": true,
+  "wall_ms": 2295,
+  "model_calls": 4,
+  "tokens_in": 3059,
+  "tokens_out": 5113,
+  "cost_usd": 0.004905,
+  "checks": {
+    "passed": 36,
+    "failed": 0,
+    "not_checkable": 0
+  },
+  "redone": [],
+  "output": "09-swarm/out/example-prd-3/PRD.md",
+  "components": [
+    {
+      "id": "problem-and-users",
+      "owner": "agent-1",
+      "bytes": 380,
+      "budget_bytes": 2500,
+      "ok": true,
+      "checks": [
+        {
+          "name": "non_empty",
+          "pass": true,
+          "detail": "380 bytes"
+        },
+        {
+          "name": "size_budget",
+          "pass": true,
+          "detail": "380 of 2500 bytes (+25% grace)"
+        },
+        {
+          "name": "starts_with_h2",
+          "pass": true,
+          "detail": "## Problem and Goal {.fa-section}"
+        },
+        {
+          "name": "one_h2_no_h1",
+          "pass": true,
+          "detail": "h1=false h2=1"
+        },
+        {
+          "name": "no_html",
+          "pass": true,
+          "detail": "no HTML tags"
+        },
+        {
+          "name": "acceptance: Contains the heading \"## Problem and Goal\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the exact sentence \"The trace screen currently draws agents as a flat graph.\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the exact sentence \"Goal: add a swarm view with one lane per worker agent, showing the agent's task, progress and result.\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the subheading \"### Users and Use Cases\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the bullet \"- Live demo to a visitor\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the bullet \"- Replay of a saved run\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the bullet \"- Debugging a failed worker\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        }
+      ]
+    },
+    {
+      "id": "functional-requirements",
+      "owner": "agent-2",
+      "bytes": 515,
+      "budget_bytes": 2600,
+      "ok": true,
+      "checks": [
+        {
+          "name": "non_empty",
+          "pass": true,
+          "detail": "515 bytes"
+        },
+        {
+          "name": "size_budget",
+          "pass": true,
+          "detail": "515 of 2600 bytes (+25% grace)"
+        },
+        {
+          "name": "starts_with_h2",
+          "pass": true,
+          "detail": "## Functional Requirements {.fa-section}"
+        },
+        {
+          "name": "one_h2_no_h1",
+          "pass": true,
+          "detail": "h1=false h2=1"
+        },
+        {
+          "name": "no_html",
+          "pass": true,
+          "detail": "no HTML tags"
+        },
+        {
+          "name": "acceptance: Contains the heading \"## Functional Requirements\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the list item \"FR-1. Display a separate lane for each worker agent.\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the list item \"FR-4. Show token counter and millisecond counter.\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the list item \"FR-5. Allow clicking a lane to open a fragment of the trace.\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the subheading \"### Input Data\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the exact string \"run_start, agent_spawn, llm_start, llm_end, tool_start, tool_end, run_end\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        }
+      ]
+    },
+    {
+      "id": "nonfunctional-milestones",
+      "owner": "agent-3",
+      "bytes": 664,
+      "budget_bytes": 2700,
+      "ok": true,
+      "checks": [
+        {
+          "name": "non_empty",
+          "pass": true,
+          "detail": "664 bytes"
+        },
+        {
+          "name": "size_budget",
+          "pass": true,
+          "detail": "664 of 2700 bytes (+25% grace)"
+        },
+        {
+          "name": "starts_with_h2",
+          "pass": true,
+          "detail": "## Non-functional Requirements {.fa-section}"
+        },
+        {
+          "name": "one_h2_no_h1",
+          "pass": true,
+          "detail": "h1=false h2=1"
+        },
+        {
+          "name": "no_html",
+          "pass": true,
+          "detail": "no HTML tags"
+        },
+        {
+          "name": "acceptance: Contains the heading \"## Non-functional Requirements\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the list item \"NFR-1. Render at 60 fps with up to 24 agents.\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the list item \"NFR-3. Use plain black text on white background.\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the subheading \"### Out of Scope and Open Questions\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the subheading \"### Milestones and Acceptance\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the exact string \"M1 demo shows 3 lanes with static task text.\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the exact string \"M2 demo shows token and ms counters updating in real time.\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the exact string \"M3 demo shows clicking a lane opens the corresponding trace fragment.\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        }
+      ]
+    }
+  ]
+}

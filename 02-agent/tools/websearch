@@ -1,0 +1,34 @@
+#!/usr/bin/env python3
+"""websearch "query" [n]  ->  n lines: "<n>. <title> | <url> | <snippet>".  No key. Stdlib only.
+Tries DuckDuckGo HTML, then DuckDuckGo Lite, then Wikipedia search (always answers)."""
+import html, json, re, sys, urllib.parse, urllib.request
+UA = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36'}
+def get(url, data=None):
+    req = urllib.request.Request(url, data=data, headers=UA)
+    with urllib.request.urlopen(req, timeout=12) as r: return r.read().decode('utf8', 'replace')
+def clean(s): return re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', '', s))).strip()
+def real(u):
+    m = re.search(r'uddg=([^&]+)', u)
+    return urllib.parse.unquote(m.group(1)) if m else ('https:' + u if u.startswith('//') else u)
+def ddg(q):
+    page = get('https://html.duckduckgo.com/html/', urllib.parse.urlencode({'q': q}).encode())
+    links = re.findall(r'class="result__a"[^>]*href="([^"]+)"[^>]*>(.*?)</a>', page, re.S)
+    snips = re.findall(r'class="result__snippet"[^>]*>(.*?)</a>', page, re.S)
+    return [(clean(t), real(html.unescape(u)), clean(snips[i]) if i < len(snips) else '') for i, (u, t) in enumerate(links)]
+def lite(q):
+    page = get('https://lite.duckduckgo.com/lite/', urllib.parse.urlencode({'q': q}).encode())
+    links = re.findall(r'<a[^>]*href="([^"]+)"[^>]*class=.result-link.[^>]*>(.*?)</a>', page, re.S)
+    snips = re.findall(r"class=.result-snippet.[^>]*>(.*?)</td>", page, re.S)
+    return [(clean(t), real(html.unescape(u)), clean(snips[i]) if i < len(snips) else '') for i, (u, t) in enumerate(links)]
+def wiki(q):
+    d = json.loads(get('https://en.wikipedia.org/w/api.php?' + urllib.parse.urlencode({'action': 'query', 'list': 'search', 'srsearch': q, 'format': 'json', 'srlimit': 10})))
+    return [(x['title'], 'https://en.wikipedia.org/wiki/' + urllib.parse.quote(x['title'].replace(' ', '_')), clean(x['snippet'])) for x in d['query']['search']]
+if len(sys.argv) < 2 or sys.argv[1] in ('-h', '--help'): print(__doc__); sys.exit(0)
+q = sys.argv[1]; n = int(sys.argv[2]) if len(sys.argv) > 2 else 5; res = []; src = ''
+for name, f in (('duckduckgo', ddg), ('duckduckgo-lite', lite), ('wikipedia', wiki)):
+    try: res = f(q)
+    except Exception: res = []
+    if res: src = name; break
+if not res: print('no results'); sys.exit(1)
+print(f'# {src}: {q}')
+for i, (t, u, s) in enumerate(res[:n], 1): print(f'{i}. {t} | {u} | {s[:160]}')

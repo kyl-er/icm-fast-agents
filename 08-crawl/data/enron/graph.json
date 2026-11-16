@@ -1,0 +1,266 @@
+{
+ "thread": "enron",
+ "goal": "Find how Enron is connected to the invention or spread of weather derivatives: the first deal, where they came to be traded, and the companies and people involved.",
+ "nodes": [
+  {
+   "title": "Enron",
+   "note": "Enron’s EnronOnline platform offered weather risk management products, showing the company’s involvement in trading weather derivatives, but details on the first deal, trading venues, and key participants are not given here.",
+   "depth": 0
+  },
+  {
+   "title": "Weather derivative",
+   "note": "The page identifies the first weather derivative deal (July 1996, Aquila Energy structuring a dual‑commodity hedge for Consolidated Edison), notes OTC trading began in 1997, and that the CME launched exchange‑traded weather futures in 1999; it also mentions Enron’s early exploration via EnronOnline.",
+   "depth": 1
+  },
+  {
+   "title": "Aquila, Inc.",
+   "note": "Aquila Inc. (formerly Aquila Energy) structured the first weather‑derivative transaction in July 1996, a dual‑commodity hedge for Consolidated Edison, establishing Aquila’s pioneering role in the market.",
+   "depth": 2
+  },
+  {
+   "title": "Enron scandal",
+   "note": "The Enron scandal page shows Enron’s extensive use of derivatives and its accounting practices (reporting full trade value as revenue), confirming the company’s deep involvement in derivative markets but provides no specific details on weather‑derivative deals or trading venues.",
+   "depth": 3
+  },
+  {
+   "title": "Futures contract",
+   "note": "The futures contract page provides general background on futures contracts, explaining they are exchange‑traded instruments distinct from over‑the‑counter forwards, which is relevant because early weather‑derivative deals were OTC before CME introduced exchange‑traded weather futures, but it adds no specific Enron or weather‑derivative details.",
+   "depth": 4
+  },
+  {
+   "title": "Derivatives market",
+   "note": "The Derivatives market page provides general background on OTC vs exchange‑traded derivatives, confirming that early weather‑derivative contracts were OTC before later moving to exchanges, but adds no specific Enron or weather‑derivative details.",
+   "depth": 5
+  },
+  {
+   "title": "Futures exchange",
+   "note": "The Futures exchange page provides general background on how futures exchanges operate and standardize contracts, but does not add specific information about weather derivatives or Enron’s involvement, only contextualizing exchange‑traded derivatives.",
+   "depth": 6
+  },
+  {
+   "title": "Swap (finance)",
+   "note": "The swap page explains that swaps are primarily over‑the‑counter contracts, first publicly disclosed in 1981 (IBM‑World Bank), highlighting the OTC nature of early derivative deals like the initial weather‑derivative transaction.",
+   "depth": 7
+  },
+  {
+   "title": "Structured product",
+   "note": "The structured product page explains that such products are pre‑packaged derivatives but provides no specific information on weather derivatives or Enron’s role in them.",
+   "depth": 8
+  },
+  {
+   "title": "Derivative (finance)",
+   "note": "The Derivative (finance) page gives a broad overview of derivatives, defines OTC vs exchange‑traded contracts, and mentions weather derivatives as an example of exposure where the underlying isn’t tradable, but provides no specific details on Enron’s role, the first weather‑derivative deal, or the trading venues or participants.",
+   "depth": 9
+  },
+  {
+   "title": "Trading room",
+   "note": "The Trading room page describes the front‑office environment where electronic trading (e.g., EnronOnline) occurs, but provides no specific details about Enron’s weather‑derivative transactions, the first deal, or the people involved.",
+   "depth": 9
+  },
+  {
+   "title": "Climate finance",
+   "note": "The Climate finance page discusses broad climate‑related financing mechanisms but provides no specific information about Enron, the first weather‑derivative deal, trading venues, or the individuals involved.",
+   "depth": 10
+  },
+  {
+   "title": "Weather risk management",
+   "note": null,
+   "depth": 1
+  },
+  {
+   "title": "Consolidated Edison",
+   "note": null,
+   "depth": 2
+  },
+  {
+   "title": "Chicago Mercantile Exchange",
+   "note": null,
+   "depth": 2
+  },
+  {
+   "title": "Great Plains Energy",
+   "note": null,
+   "depth": 3
+  },
+  {
+   "title": "Black Hills Corporation",
+   "note": null,
+   "depth": 3
+  },
+  {
+   "title": "Over-the-counter (finance)",
+   "note": null,
+   "depth": 5
+  },
+  {
+   "title": "Commodity market",
+   "note": null,
+   "depth": 5
+  },
+  {
+   "title": "Exchange-traded derivative contract",
+   "note": null,
+   "depth": 6
+  },
+  {
+   "title": "International Swaps and Derivatives Association",
+   "note": null,
+   "depth": 8
+  },
+  {
+   "title": "Extreme weather",
+   "note": null,
+   "depth": 11
+  },
+  {
+   "title": "Environmental finance",
+   "note": null,
+   "depth": 11
+  },
+  {
+   "title": "Sustainable finance",
+   "note": null,
+   "depth": 11
+  }
+ ],
+ "edges": [
+  {
+   "from": "Enron",
+   "to": "Weather derivative",
+   "followed": true,
+   "why": "Likely covers the origin, first deals, and key players in weather derivatives"
+  },
+  {
+   "from": "Enron",
+   "to": "Weather risk management",
+   "followed": false,
+   "why": "May describe Enron’s role and the development of weather derivative markets"
+  },
+  {
+   "from": "Weather derivative",
+   "to": "Aquila, Inc.",
+   "followed": true,
+   "why": "to learn about the firm and key individuals behind the first deal"
+  },
+  {
+   "from": "Weather derivative",
+   "to": "Consolidated Edison",
+   "followed": false,
+   "why": "to identify the utility’s role and any executives involved in the first weather derivative transaction"
+  },
+  {
+   "from": "Weather derivative",
+   "to": "Chicago Mercantile Exchange",
+   "followed": false,
+   "why": "to detail the exchange where weather derivatives were first listed and traded"
+  },
+  {
+   "from": "Aquila, Inc.",
+   "to": "Enron scandal",
+   "followed": true,
+   "why": "Provides context on Enron’s involvement and key personnel in weather‑derivative trading"
+  },
+  {
+   "from": "Aquila, Inc.",
+   "to": "Great Plains Energy",
+   "followed": false,
+   "why": "Details Aquila’s later merger, useful for company‑level connections"
+  },
+  {
+   "from": "Aquila, Inc.",
+   "to": "Black Hills Corporation",
+   "followed": false,
+   "why": "Related to Aquila’s asset divestiture after the Enron scandal"
+  },
+  {
+   "from": "Enron scandal",
+   "to": "Futures contract",
+   "followed": true,
+   "why": "Could give information on CME’s weather futures launch and trading venues"
+  },
+  {
+   "from": "Futures contract",
+   "to": "Derivatives market",
+   "followed": true,
+   "why": "Covers the overall market for derivatives, including weather derivatives and their evolution."
+  },
+  {
+   "from": "Futures contract",
+   "to": "Over-the-counter (finance)",
+   "followed": false,
+   "why": "Describes OTC trading where the first weather‑derivative deals were executed."
+  },
+  {
+   "from": "Futures contract",
+   "to": "Commodity market",
+   "followed": false,
+   "why": "Weather derivatives are treated as commodity‑type contracts; this link may detail their market context."
+  },
+  {
+   "from": "Derivatives market",
+   "to": "Futures exchange",
+   "followed": true,
+   "why": "May describe the exchange (e.g., CME) that later listed weather futures, addressing the trading venue."
+  },
+  {
+   "from": "Derivatives market",
+   "to": "Exchange-traded derivative contract",
+   "followed": false,
+   "why": "Could give details on exchange‑traded weather contracts introduced after OTC trading."
+  },
+  {
+   "from": "Futures exchange",
+   "to": "Swap (finance)",
+   "followed": true,
+   "why": "May describe weather swaps and the companies/people (including Enron) involved in structuring them"
+  },
+  {
+   "from": "Swap (finance)",
+   "to": "Structured product",
+   "followed": true,
+   "why": "Weather derivatives are a type of structured product; this page may detail their development and participants"
+  },
+  {
+   "from": "Swap (finance)",
+   "to": "International Swaps and Derivatives Association",
+   "followed": false,
+   "why": "May list member firms such as Enron and provide context on industry participants"
+  },
+  {
+   "from": "Structured product",
+   "to": "Derivative (finance)",
+   "followed": true,
+   "why": "Likely covers various derivative types, possibly including weather derivatives and their early deals"
+  },
+  {
+   "from": "Structured product",
+   "to": "Trading room",
+   "followed": true,
+   "why": "Enron’s EnronOnline was a trading desk for derivatives, could reveal Enron’s involvement"
+  },
+  {
+   "from": "Trading room",
+   "to": "Climate finance",
+   "followed": true,
+   "why": "Covers financial instruments for climate risk, potentially including weather derivatives and Enron’s role"
+  },
+  {
+   "from": "Climate finance",
+   "to": "Extreme weather",
+   "followed": false,
+   "why": "Likely covers weather‑related financial products such as weather derivatives and may mention early deals or participants."
+  },
+  {
+   "from": "Climate finance",
+   "to": "Environmental finance",
+   "followed": false,
+   "why": "Focuses on finance for environmental risks and could include the development and trading of weather derivatives."
+  },
+  {
+   "from": "Climate finance",
+   "to": "Sustainable finance",
+   "followed": false,
+   "why": "May discuss innovative financial instruments like weather derivatives within the broader sustainability context."
+  }
+ ]
+}

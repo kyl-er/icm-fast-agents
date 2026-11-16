@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# bin/agent: run the fast agent on a task.
+#   bin/agent --list                         show the example tasks
+#   bin/agent --task web-1                   run one (default harness: rig if built, else langchain)
+#   bin/agent "find the biggest file here" --category files
+#   bin/agent --task files-1 --harness langchain --model gpt-oss-120b --via groq --record
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"; cd "$ROOT"
+RIG="$ROOT/03-harness/rig/target/release/rig-agent"
+harness=""; args=()
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --harness) harness="$2"; shift 2;;
+    --list) python3 - <<'PY'
+import tomllib
+for t in tomllib.load(open('02-agent/tasks/tasks.toml','rb'))['task']: print(f"{t['id']:<10} {t['category']:<7} {t['prompt']}")
+PY
+      exit 0;;
+    *) args+=("$1"); shift;;
+  esac
+done
+[ -z "$harness" ] && { [ -x "$RIG" ] && harness=rig || harness=langchain; }
+if [ "$harness" = rig ]; then
+  [ -x "$RIG" ] || { echo "rig binary not built (cd 03-harness/rig && cargo build --release); use --harness langchain" >&2; exit 1; }
+  ICM_ROOT="$ROOT" exec "$RIG" "${args[@]}"
+else
+  PY="$ROOT/.venv/bin/python"; [ -x "$PY" ] || { echo "run: uv sync" >&2; exit 1; }
+  exec "$PY" 03-harness/langchain/agent.py "${args[@]}"
+fi

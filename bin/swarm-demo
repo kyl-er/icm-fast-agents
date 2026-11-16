@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# bin/swarm-demo: one orchestrator plans, N agents each build one component (09-swarm/).
+#   bin/swarm-demo 3              3 agents on the status-page UI brief
+#   bin/swarm-demo 6              6 agents on the same brief
+#   bin/swarm-demo 6 prd          6 agents, one PRD section each
+#   bin/swarm-demo 3 ui --model gpt-oss-120b --parallel 2     extra flags go to the swarm binary
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"; cd "$ROOT"
+BIN="$ROOT/03-harness/rig/target/release/swarm"
+n="${1:-3}"; brief="${2:-ui}"; shift $(( $# > 2 ? 2 : $# ))
+case "$brief" in
+  ui|status|status-page) file="$ROOT/09-swarm/briefs/status-page.toml";;
+  prd) file="$ROOT/09-swarm/briefs/prd.toml";;
+  *) file="$brief";;
+esac
+[ -x "$BIN" ] || { echo "swarm binary not built: (cd 09-swarm && cargo build --release)" >&2; exit 1; }
+ICM_ROOT="$ROOT" exec "$BIN" --agents "$n" --brief "$file" "$@"

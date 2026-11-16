@@ -1,0 +1,50 @@
+<section class="fa-component" data-component="models-runs">
+  <style>
+    .fa-section-title {
+      color: var(--fa-fg);
+      margin-top: var(--fa-space);
+      margin-bottom: var(--fa-space);
+    }
+    .fa-models-table th,
+    .fa-models-table td,
+    .fa-runs-list li {
+      color: var(--fa-fg);
+      padding: var(--fa-space);
+    }
+  </style>
+
+  <h2 class="fa-section-title">Models</h2>
+  <table class="fa-models-table">
+    <thead>
+      <tr>
+        <th>Model Alias</th>
+        <th>Provider</th>
+        <th>Median Call Latency</th>
+        <th>Price per 1M tokens (in/out)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>gpt-oss-120b</td>
+        <td>Cerebras</td>
+        <td>~1 s</td>
+        <td>$0.35/$0.75</td>
+      </tr>
+      <tr>
+        <td>mercury-3</td>
+        <td>Inception</td>
+        <td>n/a</td>
+        <td>$0.10/$0.35</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 class="fa-section-title">Recent runs</h2>
+  <ul class="fa-runs-list">
+    <li>web-1 rig 4 3.1 s pass</li>
+    <li>files-1 rig 3 2.2 s pass</li>
+    <li>memory-1 langchain 5 4.8 s pass</li>
+    <li>web-2 langchain 6 6.0 s pass</li>
+    <li>swarm status-page-6 swarms-rs 7 2.8 s pass</li>
+  </ul>
+</section>

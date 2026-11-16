@@ -1,0 +1,73 @@
+{
+  "summary": "Split the PRD into three markdown sections: problem/goal & users, functional requirements & input data, non‑functional requirements & milestones",
+  "shared": {
+    "style_guide": "Use plain short sentences. No marketing words or emojis. Active voice, sentence case, single space after periods. Paragraphs separated by a blank line. Bulleted lists use hyphens. Numbered lists use digits followed by a period. All headings start with ## for sections and ### for subsections. No HTML tags, images, or external links.",
+    "css_variables": {
+      "--fa-fg": "#000",
+      "--fa-bg": "#fff"
+    },
+    "heading_levels": "Each component starts with a level‑2 heading (##). Any deeper heading is level‑3 (###)."
+  },
+  "components": [
+    {
+      "id": "problem-and-users",
+      "owner": "agent-1",
+      "purpose": "Provide the problem statement, goal, and user use cases",
+      "spec": "Start with a level‑2 heading \"## Problem and Goal {.fa-section}\". Include a paragraph that reads exactly \"The trace screen currently draws agents as a flat graph. When a swarm of 3 to 24 agents is shown the graph becomes unreadable.\" Follow with a line \"Goal: add a swarm view with one lane per worker agent, showing the agent's task, progress and result.\" Add a level‑3 heading \"### Users and Use Cases {.fa-section}\". Under it place a bulleted list with three items: \"- Live demo to a visitor\", \"- Replay of a saved run\", \"- Debugging a failed worker\". No other content.",
+      "interfaces": [
+        "Provides heading level 2 (##) and level 3 (###)",
+        "Uses CSS class .fa-section on headings"
+      ],
+      "acceptance": [
+        "Contains the heading \"## Problem and Goal\"",
+        "Contains the exact sentence \"The trace screen currently draws agents as a flat graph.\"",
+        "Contains the exact sentence \"Goal: add a swarm view with one lane per worker agent, showing the agent's task, progress and result.\"",
+        "Contains the subheading \"### Users and Use Cases\"",
+        "Contains the bullet \"- Live demo to a visitor\"",
+        "Contains the bullet \"- Replay of a saved run\"",
+        "Contains the bullet \"- Debugging a failed worker\""
+      ],
+      "budget_bytes": 2500
+    },
+    {
+      "id": "functional-requirements",
+      "owner": "agent-2",
+      "purpose": "List functional requirements and describe the required input data",
+      "spec": "Begin with a level‑2 heading \"## Functional Requirements {.fa-section}\". Follow with a numbered list prefixed with FR‑ and a period. Include exactly six items: \n1. FR-1. Display a separate lane for each worker agent.\n2. FR-2. Show the agent's task text in the lane.\n3. FR-3. Show progress state as a percentage.\n4. FR-4. Show token counter and millisecond counter.\n5. FR-5. Allow clicking a lane to open a fragment of the trace.\n6. FR-6. Number each requirement with the FR- prefix.\nAdd a level‑3 heading \"### Input Data {.fa-section}\". Include a single paragraph that reads exactly \"The view consumes trace format v2 events only: run_start, agent_spawn, llm_start, llm_end, tool_start, tool_end, run_end.\" No other text.",
+      "interfaces": [
+        "Provides FR‑ numbering for other sections",
+        "Uses CSS class .fa-section on headings"
+      ],
+      "acceptance": [
+        "Contains the heading \"## Functional Requirements\"",
+        "Contains the list item \"FR-1. Display a separate lane for each worker agent.\"",
+        "Contains the list item \"FR-4. Show token counter and millisecond counter.\"",
+        "Contains the list item \"FR-5. Allow clicking a lane to open a fragment of the trace.\"",
+        "Contains the subheading \"### Input Data\"",
+        "Contains the exact string \"run_start, agent_spawn, llm_start, llm_end, tool_start, tool_end, run_end\""
+      ],
+      "budget_bytes": 2600
+    },
+    {
+      "id": "nonfunctional-milestones",
+      "owner": "agent-3",
+      "purpose": "Define non‑functional requirements, out‑of‑scope items, and milestones with acceptance criteria",
+      "spec": "Start with a level‑2 heading \"## Non-functional Requirements {.fa-section}\". Follow with a numbered list prefixed with NFR‑ and a period containing three items: \n1. NFR-1. Render at 60 fps with up to 24 agents.\n2. NFR-2. Work offline on replay.\n3. NFR-3. Use plain black text on white background.\nAdd a level‑3 heading \"### Out of Scope and Open Questions {.fa-section}\". Include a bulleted list with exactly two items: \"- No support for more than 24 agents.\", \"- How to handle dynamic agent addition after start.\".\nAdd a level‑3 heading \"### Milestones and Acceptance {.fa-section}\". Provide three milestone entries, each on its own line:\n- M1: Basic lane rendering. Acceptance: \"M1 demo shows 3 lanes with static task text.\"\n- M2: Progress counters. Acceptance: \"M2 demo shows token and ms counters updating in real time.\"\n- M3: Full interaction. Acceptance: \"M3 demo shows clicking a lane opens the corresponding trace fragment.\"",
+      "interfaces": [
+        "Provides NFR‑ numbering for citations",
+        "Uses CSS class .fa-section on headings"
+      ],
+      "acceptance": [
+        "Contains the heading \"## Non-functional Requirements\"",
+        "Contains the list item \"NFR-1. Render at 60 fps with up to 24 agents.\"",
+        "Contains the list item \"NFR-3. Use plain black text on white background.\"",
+        "Contains the subheading \"### Out of Scope and Open Questions\"",
+        "Contains the subheading \"### Milestones and Acceptance\"",
+        "Contains the exact string \"M1 demo shows 3 lanes with static task text.\"",
+        "Contains the exact string \"M2 demo shows token and ms counters updating in real time.\"",
+        "Contains the exact string \"M3 demo shows clicking a lane opens the corresponding trace fragment.\""
+      ],
+      "budget_bytes": 2700
+    }
+  ]
+}

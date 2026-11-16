@@ -1,0 +1,286 @@
+{
+  "run": "20261116-024305-swarm_status_page_3_gpt_oss_120b",
+  "brief": "status-page",
+  "kind": "ui",
+  "agents": 3,
+  "model": "gpt-oss-120b",
+  "provider": "cerebras",
+  "harness": "swarms-rs 0.3.0",
+  "ok": true,
+  "wall_ms": 1910,
+  "model_calls": 4,
+  "tokens_in": 3903,
+  "tokens_out": 4655,
+  "cost_usd": 0.004857,
+  "checks": {
+    "passed": 47,
+    "failed": 0,
+    "not_checkable": 0
+  },
+  "redone": [],
+  "output": "09-swarm/out/example-3/index.html",
+  "components": [
+    {
+      "id": "header-health",
+      "owner": "agent-one",
+      "bytes": 640,
+      "budget_bytes": 2500,
+      "ok": true,
+      "checks": [
+        {
+          "name": "non_empty",
+          "pass": true,
+          "detail": "640 bytes"
+        },
+        {
+          "name": "size_budget",
+          "pass": true,
+          "detail": "640 of 2500 bytes (+25% grace)"
+        },
+        {
+          "name": "root_element",
+          "pass": true,
+          "detail": "data-component=\"header-health\""
+        },
+        {
+          "name": "class_prefix",
+          "pass": true,
+          "detail": "6 classes, all fa-"
+        },
+        {
+          "name": "no_script",
+          "pass": true,
+          "detail": "no <script>"
+        },
+        {
+          "name": "no_shared_override",
+          "pass": true,
+          "detail": "<style> does not target .fa-component"
+        },
+        {
+          "name": "no_external_assets",
+          "pass": true,
+          "detail": "no <link>, @import or http src/href/url"
+        },
+        {
+          "name": "no_page_tags",
+          "pass": true,
+          "detail": "fragment, not a page"
+        },
+        {
+          "name": "acceptance: Contains the text \"Fast agents status dashboard\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the text \"One-page status dashboard for the ICM fast-agent demo\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the text \"2026-11-16\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the text \"9 of 9 example tasks pass on the rig harness, 9 of 9 on the LangChain fallback\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        }
+      ]
+    },
+    {
+      "id": "models-runs",
+      "owner": "agent-two",
+      "bytes": 1219,
+      "budget_bytes": 2800,
+      "ok": true,
+      "checks": [
+        {
+          "name": "non_empty",
+          "pass": true,
+          "detail": "1219 bytes"
+        },
+        {
+          "name": "size_budget",
+          "pass": true,
+          "detail": "1219 of 2800 bytes (+25% grace)"
+        },
+        {
+          "name": "root_element",
+          "pass": true,
+          "detail": "data-component=\"models-runs\""
+        },
+        {
+          "name": "class_prefix",
+          "pass": true,
+          "detail": "5 classes, all fa-"
+        },
+        {
+          "name": "no_script",
+          "pass": true,
+          "detail": "no <script>"
+        },
+        {
+          "name": "no_shared_override",
+          "pass": true,
+          "detail": "<style> does not target .fa-component"
+        },
+        {
+          "name": "no_external_assets",
+          "pass": true,
+          "detail": "no <link>, @import or http src/href/url"
+        },
+        {
+          "name": "no_page_tags",
+          "pass": true,
+          "detail": "fragment, not a page"
+        },
+        {
+          "name": "acceptance: Contains the table cell text \"gpt-oss-120b\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the table cell text \"Cerebras\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the table cell text \"~1 s\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the table cell text \"$0.35/$0.75\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the table cell text \"mercury-3\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the table cell text \"Inception\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the table cell text \"n/a\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the table cell text \"$0.10/$0.35\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the list item \"web-1 rig 4 3.1 s pass\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the list item \"files-1 rig 3 2.2 s pass\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the list item \"memory-1 langchain 5 4.8 s pass\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the list item \"web-2 langchain 6 6.0 s pass\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the list item \"swarm status-page-6 swarms-rs 7 2.8 s pass\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        }
+      ]
+    },
+    {
+      "id": "cost-footer",
+      "owner": "agent-three",
+      "bytes": 738,
+      "budget_bytes": 2400,
+      "ok": true,
+      "checks": [
+        {
+          "name": "non_empty",
+          "pass": true,
+          "detail": "738 bytes"
+        },
+        {
+          "name": "size_budget",
+          "pass": true,
+          "detail": "738 of 2400 bytes (+25% grace)"
+        },
+        {
+          "name": "root_element",
+          "pass": true,
+          "detail": "data-component=\"cost-footer\""
+        },
+        {
+          "name": "class_prefix",
+          "pass": true,
+          "detail": "4 classes, all fa-"
+        },
+        {
+          "name": "no_script",
+          "pass": true,
+          "detail": "no <script>"
+        },
+        {
+          "name": "no_shared_override",
+          "pass": true,
+          "detail": "<style> does not target .fa-component"
+        },
+        {
+          "name": "no_external_assets",
+          "pass": true,
+          "detail": "no <link>, @import or http src/href/url"
+        },
+        {
+          "name": "no_page_tags",
+          "pass": true,
+          "detail": "fragment, not a page"
+        },
+        {
+          "name": "acceptance: Contains the text \"Total spend today $0.06\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the text \"Cost per task about $0.007\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the text \"Cheapest model mercury-3 ($0.10/$0.35 per 1M tokens)\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the text \"Traces live: 04-traces/live\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the text \"Traces saved: 04-traces/saved\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the text \"Replay one: bin/replay web_2\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        }
+      ]
+    }
+  ]
+}

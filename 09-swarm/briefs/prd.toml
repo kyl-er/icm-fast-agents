@@ -1,0 +1,26 @@
+# The same structure for a document: each agent owns one section of a PRD.
+name = "prd"
+kind = "prd"
+title = "PRD: Swarm view for the trace screen"
+goal = "A short product requirements document for adding a swarm view to the trace screen (05-screen): one orchestrator node, one lane per worker agent, each lane showing the agent's task, progress and result."
+audience = "The one engineer who will build it next week, and the owner who approves it. Both read it in five minutes."
+tone = "Plain, short sentences. Concrete numbers. No marketing words. No emoji."
+class_prefix = "fa-"                  # unused for Markdown; kept so both briefs share one shape
+
+must_show = [
+  "Problem and goal: today the screen draws agents as a flat graph; a swarm of 3 to 24 agents becomes unreadable",
+  "Users and use cases: live demo to a visitor, replay of a saved run, debugging a failed worker",
+  "Functional requirements: numbered, testable (lanes, per-agent task text, progress state, token and ms counters, click to open a fragment)",
+  "Input data: trace format v2 events (run_start, agent_spawn, llm_start, llm_end, tool_start, tool_end, run_end) and nothing else",
+  "Non-functional requirements: 60 fps with 24 agents, works offline on replay, plain black on white",
+  "Out of scope and open questions",
+  "Milestones and acceptance: what is demoed at the end of each milestone",
+]
+
+constraints = [
+  "Each section is plain GitHub Markdown. It starts with exactly one level-2 heading (## ) naming the section; deeper headings are ### only.",
+  "No level-1 heading: the assembler writes the document title.",
+  "No HTML, no images, no links to external sites.",
+  "Requirements are numbered with the section's own prefix (for example FR-1, NFR-1) so other sections can cite them.",
+  "Every section stays within its size budget.",
+]

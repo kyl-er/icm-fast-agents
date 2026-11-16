@@ -1,0 +1,35 @@
+#!/usr/bin/env python3
+"""bin/replay: play saved traces back, with no network.
+  bin/replay --list                 saved traces
+  bin/replay web-2                  print the newest saved trace whose name contains "web-2" (or "web_2"), original timing
+  bin/replay web-2 --speed 4        four times faster      --speed 0   no waiting
+  bin/replay web-2 --emit           also re-emit it into 04-traces/live/ under a new run id, so the screen shows it as live
+"""
+import argparse, json, pathlib, sys, time
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / '03-harness'))
+from trace import pretty  # noqa: E402
+a = argparse.ArgumentParser(); a.add_argument('name', nargs='?'); a.add_argument('--list', action='store_true')
+a.add_argument('--speed', type=float, default=1.0); a.add_argument('--emit', action='store_true'); a = a.parse_args()
+saved = sorted((ROOT / '04-traces/saved').glob('*.jsonl'))
+if a.list or not a.name:
+    for p in saved:
+        ev = [json.loads(l) for l in p.read_text().splitlines() if l.strip()]
+        s, e = ev[0], ev[-1]
+        print(f"{p.stem:<62} {s.get('category', ''):<7} {len(ev):>4} events  ok={e.get('ok')}  {e.get('ms', '')} ms")
+    sys.exit(0)
+key = a.name.replace('-', '_')
+hits = [p for p in saved if key in p.stem.replace('-', '_')]
+if not hits: sys.exit(f'no saved trace matches {a.name!r}; try --list')
+ev = [json.loads(l) for l in hits[-1].read_text().splitlines() if l.strip()]
+out = None; shift = time.time() - ev[0]['ts']; rid = time.strftime('%Y%m%d-%H%M%S') + '-replay-' + hits[-1].stem.split('-', 2)[-1]
+if a.emit:
+    d = ROOT / '04-traces/live'; d.mkdir(parents=True, exist_ok=True); out = open(d / f'{rid}.jsonl', 'a')
+prev = ev[0]['ts']
+for e in ev:
+    if a.speed > 0: time.sleep(min(max(e['ts'] - prev, 0) / a.speed, 5))
+    prev = e['ts']
+    if out:
+        e = {**e, 'run': rid, 'ts': round(e['ts'] + shift, 4), 'replay': True}
+        out.write(json.dumps(e, ensure_ascii=False) + '\n'); out.flush()
+    print(pretty(e), flush=True)

@@ -1,0 +1,29 @@
+#!/usr/bin/env python3
+"""fetchmd URL [max_chars=3000]  ->  the page as markdown/plain text, capped.  Stdlib only.
+Uses the local `crawl` command when it is installed (better markdown), else a built-in HTML-to-text fallback.
+  fetchmd URL 1500            first 1500 chars
+  fetchmd URL 4000 | rg -i -m5 'price'   then filter"""
+import html, json, re, shutil, subprocess, sys, urllib.request
+if len(sys.argv) < 2 or sys.argv[1] in ('-h', '--help'): print(__doc__); sys.exit(0)
+url = sys.argv[1]; cap = int(sys.argv[2]) if len(sys.argv) > 2 else 3000
+def fallback(u):
+    req = urllib.request.Request(u, headers={'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) Chrome/130.0 Safari/537.36'})
+    with urllib.request.urlopen(req, timeout=20) as r: page = r.read(3_000_000).decode('utf8', 'replace')
+    title = re.search(r'<title[^>]*>(.*?)</title>', page, re.S | re.I)
+    page = re.sub(r'(?is)<(script|style|nav|footer|header|svg|noscript|form)[^>]*>.*?</\1>', ' ', page)
+    page = re.sub(r'(?i)<h([1-6])[^>]*>', lambda m: '\n\n' + '#' * int(m.group(1)) + ' ', page)
+    page = re.sub(r'(?i)<li[^>]*>', '\n- ', page); page = re.sub(r'(?i)<(p|br|div|tr|/h[1-6])[^>]*>', '\n', page)
+    page = re.sub(r'(?is)<a[^>]*href="(https?://[^"]+)"[^>]*>(.*?)</a>', r'[\2](\1)', page)
+    text = html.unescape(re.sub(r'<[^>]+>', '', page)); text = re.sub(r'[ \t]+', ' ', text); text = re.sub(r'\n\s*\n+', '\n\n', text).strip()
+    return (html.unescape(title.group(1)).strip() if title else ''), text
+title = md = ''
+if shutil.which('crawl'):
+    try:
+        d = json.loads(subprocess.run(['crawl', url, 'fit', str(cap)], capture_output=True, text=True, timeout=40).stdout)
+        if d.get('ok'): title, md = d.get('title') or '', d.get('markdown') or ''
+    except Exception: pass
+if not md:
+    try: title, md = fallback(url)
+    except Exception as e: print(f'fetch failed: {e}'); sys.exit(1)
+out = f'# {title}\nsource: {url}\n\n{md}'
+print(out[:cap] + (f'\n...[cut at {cap} of {len(out)} chars]' if len(out) > cap else ''))

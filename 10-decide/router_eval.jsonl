@@ -1,0 +1,160 @@
+{"decider": "jev", "q": "where on this machine is a file called hyprland.conf", "want": "plocate", "got": "plocate", "confidence": 0.94, "ms": 298, "cost_usd": 3.2e-05}
+{"decider": "jev", "q": "find every file named Cargo.lock anywhere on disk", "want": "plocate", "got": "plocate", "confidence": 0.99, "ms": 308, "cost_usd": 3.19e-05}
+{"decider": "jev", "q": "is there a file with 'invoice' in its name somewhere in my home folder, I don't know which folder", "want": "plocate", "got": "fd", "confidence": 0.77, "ms": 316, "cost_usd": 3.25e-05}
+{"decider": "jev", "q": "locate libssl.so on the system", "want": "plocate", "got": "plocate", "confidence": 1.0, "ms": 197, "cost_usd": 3.19e-05}
+{"decider": "jev", "q": "list the python files under 03-harness changed in the last day", "want": "fd", "got": "git", "confidence": 0.76, "ms": 171, "cost_usd": 3.22e-05}
+{"decider": "jev", "q": "which files in this project are bigger than 1 MB", "want": "fd", "got": "eza", "confidence": 0.53, "ms": 169, "cost_usd": 3.2e-05}
+{"decider": "jev", "q": "all .toml files inside 01-config", "want": "fd", "got": "fd", "confidence": 1.0, "ms": 185, "cost_usd": 3.2e-05}
+{"decider": "jev", "q": "find directories named node_modules below ~/03-Projects", "want": "fd", "got": "fd", "confidence": 1.0, "ms": 182, "cost_usd": 3.21e-05}
+{"decider": "jev", "q": "which file in this repo contains the string max_invalid_tool_call_retries", "want": "rg", "got": "rg", "confidence": 0.98, "ms": 172, "cost_usd": 3.21e-05}
+{"decider": "jev", "q": "show the lines that mention DEEPGRAM_API_KEY in the screen source", "want": "rg", "got": "rg", "confidence": 0.97, "ms": 184, "cost_usd": 3.21e-05}
+{"decider": "jev", "q": "where do we define the function new_run_id", "want": "rg", "got": "rg", "confidence": 0.92, "ms": 181, "cost_usd": 3.19e-05}
+{"decider": "jev", "q": "count how many times 'tool_end' appears in the trace schema doc", "want": "rg", "got": "rg", "confidence": 0.86, "ms": 194, "cost_usd": 3.21e-05}
+{"decider": "jev", "q": "I have a list of 5000 paths in paths.txt, pick the ones that look most like 'emailpipe'", "want": "fzf", "got": "fzf", "confidence": 0.99, "ms": 170, "cost_usd": 3.27e-05}
+{"decider": "jev", "q": "rank these file names by how closely they match the fuzzy guess 'rgstry'", "want": "fzf", "got": "fzf", "confidence": 0.98, "ms": 184, "cost_usd": 3.22e-05}
+{"decider": "jev", "q": "show me the folder layout of 06-email two levels deep", "want": "eza", "got": "eza", "confidence": 1.0, "ms": 174, "cost_usd": 3.21e-05}
+{"decider": "jev", "q": "what are the newest items in the 04-traces folder", "want": "eza", "got": "eza", "confidence": 1.0, "ms": 187, "cost_usd": 3.21e-05}
+{"decider": "jev", "q": "give me a tree of the 02-agent directory", "want": "eza", "got": "eza", "confidence": 1.0, "ms": 209, "cost_usd": 3.2e-05}
+{"decider": "jev", "q": "which subfolder of this repo takes the most space", "want": "eza", "got": "eza", "confidence": 0.93, "ms": 220, "cost_usd": 3.2e-05}
+{"decider": "jev", "q": "list only the source files that are tracked in this repository, no build output", "want": "git", "got": "git", "confidence": 1.0, "ms": 180, "cost_usd": 3.22e-05}
+{"decider": "jev", "q": "search the tracked files of this repo for 'bwrap', skipping vendored junk", "want": "git", "got": "git", "confidence": 0.6, "ms": 177, "cost_usd": 3.22e-05}
+{"decider": "jev", "q": "which files changed in the last commit", "want": "git", "got": "git", "confidence": 1.0, "ms": 191, "cost_usd": 3.18e-05}
+{"decider": "jev", "q": "what did I decide last week about the AgentOS folder layout", "want": "ctxq", "got": "ctxq", "confidence": 1.0, "ms": 175, "cost_usd": 3.2e-05}
+{"decider": "jev", "q": "find the session where the cursor swarm was built", "want": "ctxq", "got": "ctxq", "confidence": 0.8, "ms": 186, "cost_usd": 3.19e-05}
+{"decider": "jev", "q": "which past chat talked about Deepgram voice orchestration", "want": "ctxq", "got": "ctxq", "confidence": 0.99, "ms": 196, "cost_usd": 3.2e-05}
+{"decider": "jev", "q": "is there a Kaneo task about the ctx REST API and what is its status", "want": "ctxq", "got": "ctxq", "confidence": 0.99, "ms": 181, "cost_usd": 3.22e-05}
+{"decider": "jev", "q": "what was the outcome of the session that surveyed fast web fetch CLIs", "want": "ctxq", "got": "ctxq", "confidence": 0.98, "ms": 168, "cost_usd": 3.21e-05}
+{"decider": "jev", "q": "give me the command to resume the conversation about the model registry", "want": "ctxq", "got": "ctxq", "confidence": 1.0, "ms": 171, "cost_usd": 3.2e-05}
+{"decider": "jev", "q": "find the official documentation site for the rig rust crate", "want": "websearch", "got": "websearch", "confidence": 1.0, "ms": 167, "cost_usd": 3.2e-05}
+{"decider": "jev", "q": "who maintains the swarms-rs project", "want": "websearch", "got": "websearch", "confidence": 0.86, "ms": 2452, "cost_usd": 3.19e-05}
+{"decider": "jev", "q": "what are good sources about the Enron bankruptcy timeline", "want": "websearch", "got": "websearch", "confidence": 1.0, "ms": 173, "cost_usd": 3.2e-05}
+{"decider": "jev", "q": "look up what bubblewrap is and where its repo lives", "want": "websearch", "got": "websearch", "confidence": 0.98, "ms": 185, "cost_usd": 3.21e-05}
+{"decider": "jev", "q": "read https://www.rig.rs/ and tell me what it says about providers", "want": "fetchmd", "got": "fetchmd", "confidence": 1.0, "ms": 170, "cost_usd": 3.22e-05}
+{"decider": "jev", "q": "turn https://en.wikipedia.org/wiki/ReAct_(software) into markdown and save it", "want": "fetchmd", "got": "fetchmd", "confidence": 1.0, "ms": 163, "cost_usd": 3.23e-05}
+{"decider": "jev", "q": "what does the page at https://docs.typesafe.ai/primitives say about Noul", "want": "fetchmd", "got": "fetchmd", "confidence": 1.0, "ms": 167, "cost_usd": 3.23e-05}
+{"decider": "jev", "q": "scrape this article to text: https://example.com/post/42", "want": "fetchmd", "got": "fetchmd", "confidence": 1.0, "ms": 170, "cost_usd": 3.22e-05}
+{"decider": "jev", "q": "how many stars does the GitHub repo 0xPlaygrounds/rig have, use the API", "want": "curl-jq", "got": "curl-jq", "confidence": 1.0, "ms": 183, "cost_usd": 3.25e-05}
+{"decider": "jev", "q": "get the 'extract' field from https://en.wikipedia.org/api/rest_v1/page/summary/Houston", "want": "curl-jq", "got": "curl-jq", "confidence": 1.0, "ms": 185, "cost_usd": 3.25e-05}
+{"decider": "jev", "q": "is https://example.com up and how fast does it answer", "want": "curl-jq", "got": "curl-jq", "confidence": 0.64, "ms": 194, "cost_usd": 3.2e-05}
+{"decider": "jev", "q": "call the ctx health endpoint and show me the status field of the JSON", "want": "curl-jq", "got": "curl-jq", "confidence": 1.0, "ms": 190, "cost_usd": 3.21e-05}
+{"decider": "jev", "q": "fetch https://api.github.com/repos/langchain-ai/langgraph and print the open issue count", "want": "curl-jq", "got": "curl-jq", "confidence": 1.0, "ms": 205, "cost_usd": 3.24e-05}
+{"decider": "llm:mercury-3", "q": "where on this machine is a file called hyprland.conf", "want": "plocate", "got": "plocate", "confidence": null, "ms": 352, "cost_usd": 5.36e-05}
+{"decider": "llm:mercury-3", "q": "find every file named Cargo.lock anywhere on disk", "want": "plocate", "got": "plocate", "confidence": null, "ms": 1704, "cost_usd": 7.16e-05}
+{"decider": "llm:mercury-3", "q": "is there a file with 'invoice' in its name somewhere in my home folder, I don't know which folder", "want": "plocate", "got": "fd", "confidence": null, "ms": 627, "cost_usd": 6.25e-05}
+{"decider": "llm:mercury-3", "q": "locate libssl.so on the system", "want": "plocate", "got": "plocate", "confidence": null, "ms": 396, "cost_usd": 6.22e-05}
+{"decider": "llm:mercury-3", "q": "list the python files under 03-harness changed in the last day", "want": "fd", "got": "fd", "confidence": null, "ms": 535, "cost_usd": 8.48e-05}
+{"decider": "llm:mercury-3", "q": "which files in this project are bigger than 1 MB", "want": "fd", "got": "fd", "confidence": null, "ms": 699, "cost_usd": 9.67e-05}
+{"decider": "llm:mercury-3", "q": "all .toml files inside 01-config", "want": "fd", "got": "fd", "confidence": null, "ms": 570, "cost_usd": 6.12e-05}
+{"decider": "llm:mercury-3", "q": "find directories named node_modules below ~/03-Projects", "want": "fd", "got": "fd", "confidence": null, "ms": 871, "cost_usd": 5.68e-05}
+{"decider": "llm:mercury-3", "q": "which file in this repo contains the string max_invalid_tool_call_retries", "want": "rg", "got": "rg", "confidence": null, "ms": 358, "cost_usd": 5.05e-05}
+{"decider": "llm:mercury-3", "q": "show the lines that mention DEEPGRAM_API_KEY in the screen source", "want": "rg", "got": "rg", "confidence": null, "ms": 442, "cost_usd": 5.04e-05}
+{"decider": "llm:mercury-3", "q": "where do we define the function new_run_id", "want": "rg", "got": "rg", "confidence": null, "ms": 533, "cost_usd": 5.35e-05}
+{"decider": "llm:mercury-3", "q": "count how many times 'tool_end' appears in the trace schema doc", "want": "rg", "got": "rg", "confidence": null, "ms": 532, "cost_usd": 6.69e-05}
+{"decider": "llm:mercury-3", "q": "I have a list of 5000 paths in paths.txt, pick the ones that look most like 'emailpipe'", "want": "fzf", "got": "fzf", "confidence": null, "ms": 666, "cost_usd": 0.0001441}
+{"decider": "llm:mercury-3", "q": "rank these file names by how closely they match the fuzzy guess 'rgstry'", "want": "fzf", "got": "fzf", "confidence": null, "ms": 1846, "cost_usd": 8.69e-05}
+{"decider": "llm:mercury-3", "q": "show me the folder layout of 06-email two levels deep", "want": "eza", "got": "eza", "confidence": null, "ms": 521, "cost_usd": 8.69e-05}
+{"decider": "llm:mercury-3", "q": "what are the newest items in the 04-traces folder", "want": "eza", "got": "INVALID", "confidence": null, "ms": 4385, "cost_usd": 8.34e-05}
+{"decider": "llm:mercury-3", "q": "give me a tree of the 02-agent directory", "want": "eza", "got": "eza", "confidence": null, "ms": 8454, "cost_usd": 5.06e-05}
+{"decider": "llm:mercury-3", "q": "which subfolder of this repo takes the most space", "want": "eza", "got": "eza", "confidence": null, "ms": 559, "cost_usd": 6.77e-05}
+{"decider": "llm:mercury-3", "q": "list only the source files that are tracked in this repository, no build output", "want": "git", "got": "git", "confidence": null, "ms": 853, "cost_usd": 6.67e-05}
+{"decider": "llm:mercury-3", "q": "search the tracked files of this repo for 'bwrap', skipping vendored junk", "want": "git", "got": "rg", "confidence": null, "ms": 537, "cost_usd": 8.02e-05}
+{"decider": "llm:mercury-3", "q": "which files changed in the last commit", "want": "git", "got": "git", "confidence": null, "ms": 425, "cost_usd": 5.42e-05}
+{"decider": "llm:mercury-3", "q": "what did I decide last week about the AgentOS folder layout", "want": "ctxq", "got": "ctxq", "confidence": null, "ms": 1180, "cost_usd": 6.63e-05}
+{"decider": "llm:mercury-3", "q": "find the session where the cursor swarm was built", "want": "ctxq", "got": "ctxq", "confidence": null, "ms": 935, "cost_usd": 9.9e-05}
+{"decider": "llm:mercury-3", "q": "which past chat talked about Deepgram voice orchestration", "want": "ctxq", "got": "ctxq", "confidence": null, "ms": 8353, "cost_usd": 6.06e-05}
+{"decider": "llm:mercury-3", "q": "is there a Kaneo task about the ctx REST API and what is its status", "want": "ctxq", "got": "ctxq", "confidence": null, "ms": 397, "cost_usd": 5.89e-05}
+{"decider": "llm:mercury-3", "q": "what was the outcome of the session that surveyed fast web fetch CLIs", "want": "ctxq", "got": "ctxq", "confidence": null, "ms": 395, "cost_usd": 5.41e-05}
+{"decider": "llm:mercury-3", "q": "give me the command to resume the conversation about the model registry", "want": "ctxq", "got": "ctxq", "confidence": null, "ms": 387, "cost_usd": 6.22e-05}
+{"decider": "llm:mercury-3", "q": "find the official documentation site for the rig rust crate", "want": "websearch", "got": "websearch", "confidence": null, "ms": 456, "cost_usd": 6.46e-05}
+{"decider": "llm:mercury-3", "q": "who maintains the swarms-rs project", "want": "websearch", "got": "websearch", "confidence": null, "ms": 832, "cost_usd": 0.0001351}
+{"decider": "llm:mercury-3", "q": "what are good sources about the Enron bankruptcy timeline", "want": "websearch", "got": "websearch", "confidence": null, "ms": 3231, "cost_usd": 6.11e-05}
+{"decider": "llm:mercury-3", "q": "look up what bubblewrap is and where its repo lives", "want": "websearch", "got": "websearch", "confidence": null, "ms": 460, "cost_usd": 6.65e-05}
+{"decider": "llm:mercury-3", "q": "read https://www.rig.rs/ and tell me what it says about providers", "want": "fetchmd", "got": "fetchmd", "confidence": null, "ms": 368, "cost_usd": 5.48e-05}
+{"decider": "llm:mercury-3", "q": "turn https://en.wikipedia.org/wiki/ReAct_(software) into markdown and save it", "want": "fetchmd", "got": "fetchmd", "confidence": null, "ms": 406, "cost_usd": 5.38e-05}
+{"decider": "llm:mercury-3", "q": "what does the page at https://docs.typesafe.ai/primitives say about Noul", "want": "fetchmd", "got": "fetchmd", "confidence": null, "ms": 462, "cost_usd": 6.62e-05}
+{"decider": "llm:mercury-3", "q": "scrape this article to text: https://example.com/post/42", "want": "fetchmd", "got": "fetchmd", "confidence": null, "ms": 1792, "cost_usd": 5.63e-05}
+{"decider": "llm:mercury-3", "q": "how many stars does the GitHub repo 0xPlaygrounds/rig have, use the API", "want": "curl-jq", "got": "curl-jq", "confidence": null, "ms": 436, "cost_usd": 6.96e-05}
+{"decider": "llm:mercury-3", "q": "get the 'extract' field from https://en.wikipedia.org/api/rest_v1/page/summary/Houston", "want": "curl-jq", "got": "curl-jq", "confidence": null, "ms": 3455, "cost_usd": 6.71e-05}
+{"decider": "llm:mercury-3", "q": "is https://example.com up and how fast does it answer", "want": "curl-jq", "got": "curl-jq", "confidence": null, "ms": 3050, "cost_usd": 0.0001879}
+{"decider": "llm:mercury-3", "q": "call the ctx health endpoint and show me the status field of the JSON", "want": "curl-jq", "got": "curl-jq", "confidence": null, "ms": 782, "cost_usd": 6.79e-05}
+{"decider": "llm:mercury-3", "q": "fetch https://api.github.com/repos/langchain-ai/langgraph and print the open issue count", "want": "curl-jq", "got": "curl-jq", "confidence": null, "ms": 483, "cost_usd": 5.52e-05}
+{"decider": "llm:gpt-oss-120b", "q": "where on this machine is a file called hyprland.conf", "want": "plocate", "got": "plocate", "confidence": null, "ms": 465, "cost_usd": 0.0002127}
+{"decider": "llm:gpt-oss-120b", "q": "find every file named Cargo.lock anywhere on disk", "want": "plocate", "got": "plocate", "confidence": null, "ms": 434, "cost_usd": 0.0001974}
+{"decider": "llm:gpt-oss-120b", "q": "is there a file with 'invoice' in its name somewhere in my home folder, I don't know which folder", "want": "plocate", "got": "fd", "confidence": null, "ms": 526, "cost_usd": 0.0003099}
+{"decider": "llm:gpt-oss-120b", "q": "locate libssl.so on the system", "want": "plocate", "got": "plocate", "confidence": null, "ms": 443, "cost_usd": 0.0002049}
+{"decider": "llm:gpt-oss-120b", "q": "list the python files under 03-harness changed in the last day", "want": "fd", "got": "fd", "confidence": null, "ms": 811, "cost_usd": 0.0002561}
+{"decider": "llm:gpt-oss-120b", "q": "which files in this project are bigger than 1 MB", "want": "fd", "got": "eza", "confidence": null, "ms": 395, "cost_usd": 0.0002289}
+{"decider": "llm:gpt-oss-120b", "q": "all .toml files inside 01-config", "want": "fd", "got": "fd", "confidence": null, "ms": 490, "cost_usd": 0.0002154}
+{"decider": "llm:gpt-oss-120b", "q": "find directories named node_modules below ~/03-Projects", "want": "fd", "got": "fd", "confidence": null, "ms": 610, "cost_usd": 0.0002082}
+{"decider": "llm:gpt-oss-120b", "q": "which file in this repo contains the string max_invalid_tool_call_retries", "want": "rg", "got": "rg", "confidence": null, "ms": 283, "cost_usd": 0.0002216}
+{"decider": "llm:gpt-oss-120b", "q": "show the lines that mention DEEPGRAM_API_KEY in the screen source", "want": "rg", "got": "rg", "confidence": null, "ms": 289, "cost_usd": 0.0002224}
+{"decider": "llm:gpt-oss-120b", "q": "where do we define the function new_run_id", "want": "rg", "got": "rg", "confidence": null, "ms": 425, "cost_usd": 0.0002514}
+{"decider": "llm:gpt-oss-120b", "q": "count how many times 'tool_end' appears in the trace schema doc", "want": "rg", "got": "rg", "confidence": null, "ms": 400, "cost_usd": 0.0002171}
+{"decider": "llm:gpt-oss-120b", "q": "I have a list of 5000 paths in paths.txt, pick the ones that look most like 'emailpipe'", "want": "fzf", "got": "fzf", "confidence": null, "ms": 290, "cost_usd": 0.0002255}
+{"decider": "llm:gpt-oss-120b", "q": "rank these file names by how closely they match the fuzzy guess 'rgstry'", "want": "fzf", "got": "fzf", "confidence": null, "ms": 422, "cost_usd": 0.0002625}
+{"decider": "llm:gpt-oss-120b", "q": "show me the folder layout of 06-email two levels deep", "want": "eza", "got": "eza", "confidence": null, "ms": 289, "cost_usd": 0.0002209}
+{"decider": "llm:gpt-oss-120b", "q": "what are the newest items in the 04-traces folder", "want": "eza", "got": "eza", "confidence": null, "ms": 287, "cost_usd": 0.0002127}
+{"decider": "llm:gpt-oss-120b", "q": "give me a tree of the 02-agent directory", "want": "eza", "got": "eza", "confidence": null, "ms": 395, "cost_usd": 0.0002082}
+{"decider": "llm:gpt-oss-120b", "q": "which subfolder of this repo takes the most space", "want": "eza", "got": "eza", "confidence": null, "ms": 440, "cost_usd": 0.0002382}
+{"decider": "llm:gpt-oss-120b", "q": "list only the source files that are tracked in this repository, no build output", "want": "git", "got": "git", "confidence": null, "ms": 1499, "cost_usd": 0.0002168}
+{"decider": "llm:gpt-oss-120b", "q": "search the tracked files of this repo for 'bwrap', skipping vendored junk", "want": "git", "got": "git", "confidence": null, "ms": 261, "cost_usd": 0.0002209}
+{"decider": "llm:gpt-oss-120b", "q": "which files changed in the last commit", "want": "git", "got": "git", "confidence": null, "ms": 272, "cost_usd": 0.0001959}
+{"decider": "llm:gpt-oss-120b", "q": "what did I decide last week about the AgentOS folder layout", "want": "ctxq", "got": "ctxq", "confidence": null, "ms": 320, "cost_usd": 0.0002397}
+{"decider": "llm:gpt-oss-120b", "q": "find the session where the cursor swarm was built", "want": "ctxq", "got": "ctxq", "confidence": null, "ms": 2413, "cost_usd": 0.0002401}
+{"decider": "llm:gpt-oss-120b", "q": "which past chat talked about Deepgram voice orchestration", "want": "ctxq", "got": "ctxq", "confidence": null, "ms": 366, "cost_usd": 0.0002382}
+{"decider": "llm:gpt-oss-120b", "q": "is there a Kaneo task about the ctx REST API and what is its status", "want": "ctxq", "got": "ctxq", "confidence": null, "ms": 392, "cost_usd": 0.0002523}
+{"decider": "llm:gpt-oss-120b", "q": "what was the outcome of the session that surveyed fast web fetch CLIs", "want": "ctxq", "got": "ctxq", "confidence": null, "ms": 420, "cost_usd": 0.0002329}
+{"decider": "llm:gpt-oss-120b", "q": "give me the command to resume the conversation about the model registry", "want": "ctxq", "got": "ctxq", "confidence": null, "ms": 283, "cost_usd": 0.0002547}
+{"decider": "llm:gpt-oss-120b", "q": "find the official documentation site for the rig rust crate", "want": "websearch", "got": "websearch", "confidence": null, "ms": 301, "cost_usd": 0.0002015}
+{"decider": "llm:gpt-oss-120b", "q": "who maintains the swarms-rs project", "want": "websearch", "got": "websearch", "confidence": null, "ms": 516, "cost_usd": 0.0002503}
+{"decider": "llm:gpt-oss-120b", "q": "what are good sources about the Enron bankruptcy timeline", "want": "websearch", "got": "websearch", "confidence": null, "ms": 284, "cost_usd": 0.000215}
+{"decider": "llm:gpt-oss-120b", "q": "look up what bubblewrap is and where its repo lives", "want": "websearch", "got": "websearch", "confidence": null, "ms": 276, "cost_usd": 0.0002078}
+{"decider": "llm:gpt-oss-120b", "q": "read https://www.rig.rs/ and tell me what it says about providers", "want": "fetchmd", "got": "fetchmd", "confidence": null, "ms": 379, "cost_usd": 0.0002238}
+{"decider": "llm:gpt-oss-120b", "q": "turn https://en.wikipedia.org/wiki/ReAct_(software) into markdown and save it", "want": "fetchmd", "got": "fetchmd", "confidence": null, "ms": 465, "cost_usd": 0.0002265}
+{"decider": "llm:gpt-oss-120b", "q": "what does the page at https://docs.typesafe.ai/primitives say about Noul", "want": "fetchmd", "got": "fetchmd", "confidence": null, "ms": 290, "cost_usd": 0.0002572}
+{"decider": "llm:gpt-oss-120b", "q": "scrape this article to text: https://example.com/post/42", "want": "fetchmd", "got": "fetchmd", "confidence": null, "ms": 414, "cost_usd": 0.0002025}
+{"decider": "llm:gpt-oss-120b", "q": "how many stars does the GitHub repo 0xPlaygrounds/rig have, use the API", "want": "curl-jq", "got": "curl-jq", "confidence": null, "ms": 272, "cost_usd": 0.0002395}
+{"decider": "llm:gpt-oss-120b", "q": "get the 'extract' field from https://en.wikipedia.org/api/rest_v1/page/summary/Houston", "want": "curl-jq", "got": "curl-jq", "confidence": null, "ms": 252, "cost_usd": 0.0002184}
+{"decider": "llm:gpt-oss-120b", "q": "is https://example.com up and how fast does it answer", "want": "curl-jq", "got": "curl-jq", "confidence": null, "ms": 571, "cost_usd": 0.0004707}
+{"decider": "llm:gpt-oss-120b", "q": "call the ctx health endpoint and show me the status field of the JSON", "want": "curl-jq", "got": "curl-jq", "confidence": null, "ms": 310, "cost_usd": 0.0002164}
+{"decider": "llm:gpt-oss-120b", "q": "fetch https://api.github.com/repos/langchain-ai/langgraph and print the open issue count", "want": "curl-jq", "got": "curl-jq", "confidence": null, "ms": 401, "cost_usd": 0.0001938}
+{"decider": "llm:glm-53-flash", "q": "where on this machine is a file called hyprland.conf", "want": "plocate", "got": "plocate", "confidence": null, "ms": 9862, "cost_usd": 1.78e-05}
+{"decider": "llm:glm-53-flash", "q": "find every file named Cargo.lock anywhere on disk", "want": "plocate", "got": "plocate", "confidence": null, "ms": 881, "cost_usd": 2.33e-05}
+{"decider": "llm:glm-53-flash", "q": "is there a file with 'invoice' in its name somewhere in my home folder, I don't know which folder", "want": "plocate", "got": "plocate", "confidence": null, "ms": 626, "cost_usd": 1.83e-05}
+{"decider": "llm:glm-53-flash", "q": "locate libssl.so on the system", "want": "plocate", "got": "plocate", "confidence": null, "ms": 1613, "cost_usd": 2.3e-05}
+{"decider": "llm:glm-53-flash", "q": "list the python files under 03-harness changed in the last day", "want": "fd", "got": "fd", "confidence": null, "ms": 1814, "cost_usd": 2.57e-05}
+{"decider": "llm:glm-53-flash", "q": "which files in this project are bigger than 1 MB", "want": "fd", "got": "fd", "confidence": null, "ms": 9663, "cost_usd": 1.83e-05}
+{"decider": "llm:glm-53-flash", "q": "all .toml files inside 01-config", "want": "fd", "got": "fd", "confidence": null, "ms": 11026, "cost_usd": 1.87e-05}
+{"decider": "llm:glm-53-flash", "q": "find directories named node_modules below ~/03-Projects", "want": "fd", "got": "fd", "confidence": null, "ms": 1134, "cost_usd": 2.21e-05}
+{"decider": "llm:glm-53-flash", "q": "which file in this repo contains the string max_invalid_tool_call_retries", "want": "rg", "got": "rg", "confidence": null, "ms": 831, "cost_usd": 1.78e-05}
+{"decider": "llm:glm-53-flash", "q": "show the lines that mention DEEPGRAM_API_KEY in the screen source", "want": "rg", "got": "rg", "confidence": null, "ms": 1007, "cost_usd": 2e-05}
+{"decider": "llm:glm-53-flash", "q": "where do we define the function new_run_id", "want": "rg", "got": "rg", "confidence": null, "ms": 1793, "cost_usd": 1.76e-05}
+{"decider": "llm:glm-53-flash", "q": "count how many times 'tool_end' appears in the trace schema doc", "want": "rg", "got": "rg", "confidence": null, "ms": 1090, "cost_usd": 1.72e-05}
+{"decider": "llm:glm-53-flash", "q": "I have a list of 5000 paths in paths.txt, pick the ones that look most like 'emailpipe'", "want": "fzf", "got": "fzf", "confidence": null, "ms": 1902, "cost_usd": 2.62e-05}
+{"decider": "llm:glm-53-flash", "q": "rank these file names by how closely they match the fuzzy guess 'rgstry'", "want": "fzf", "got": "fzf", "confidence": null, "ms": 1877, "cost_usd": 2.34e-05}
+{"decider": "llm:glm-53-flash", "q": "show me the folder layout of 06-email two levels deep", "want": "eza", "got": "eza", "confidence": null, "ms": 11779, "cost_usd": 2.39e-05}
+{"decider": "llm:glm-53-flash", "q": "what are the newest items in the 04-traces folder", "want": "eza", "got": "eza", "confidence": null, "ms": 789, "cost_usd": 1.71e-05}
+{"decider": "llm:glm-53-flash", "q": "give me a tree of the 02-agent directory", "want": "eza", "got": "eza", "confidence": null, "ms": 1367, "cost_usd": 2.02e-05}
+{"decider": "llm:glm-53-flash", "q": "which subfolder of this repo takes the most space", "want": "eza", "got": "eza", "confidence": null, "ms": 1885, "cost_usd": 3.03e-05}
+{"decider": "llm:glm-53-flash", "q": "list only the source files that are tracked in this repository, no build output", "want": "git", "got": "git", "confidence": null, "ms": 1251, "cost_usd": 1.72e-05}
+{"decider": "llm:glm-53-flash", "q": "search the tracked files of this repo for 'bwrap', skipping vendored junk", "want": "git", "got": "git", "confidence": null, "ms": 4546, "cost_usd": 6.35e-05}
+{"decider": "llm:glm-53-flash", "q": "which files changed in the last commit", "want": "git", "got": "git", "confidence": null, "ms": 495, "cost_usd": 1.7e-05}
+{"decider": "llm:glm-53-flash", "q": "what did I decide last week about the AgentOS folder layout", "want": "ctxq", "got": "ctxq", "confidence": null, "ms": 489, "cost_usd": 1.77e-05}
+{"decider": "llm:glm-53-flash", "q": "find the session where the cursor swarm was built", "want": "ctxq", "got": "ctxq", "confidence": null, "ms": 2298, "cost_usd": 1.9e-05}
+{"decider": "llm:glm-53-flash", "q": "which past chat talked about Deepgram voice orchestration", "want": "ctxq", "got": "ctxq", "confidence": null, "ms": 1221, "cost_usd": 1.96e-05}
+{"decider": "llm:glm-53-flash", "q": "is there a Kaneo task about the ctx REST API and what is its status", "want": "ctxq", "got": "ctxq", "confidence": null, "ms": 751, "cost_usd": 2.11e-05}
+{"decider": "llm:glm-53-flash", "q": "what was the outcome of the session that surveyed fast web fetch CLIs", "want": "ctxq", "got": "ctxq", "confidence": null, "ms": 1004, "cost_usd": 2.3e-05}
+{"decider": "llm:glm-53-flash", "q": "give me the command to resume the conversation about the model registry", "want": "ctxq", "got": "ctxq", "confidence": null, "ms": 851, "cost_usd": 2.33e-05}
+{"decider": "llm:glm-53-flash", "q": "find the official documentation site for the rig rust crate", "want": "websearch", "got": "websearch", "confidence": null, "ms": 3286, "cost_usd": 2.46e-05}
+{"decider": "llm:glm-53-flash", "q": "who maintains the swarms-rs project", "want": "websearch", "got": "websearch", "confidence": null, "ms": 4065, "cost_usd": 5.33e-05}
+{"decider": "llm:glm-53-flash", "q": "what are good sources about the Enron bankruptcy timeline", "want": "websearch", "got": "websearch", "confidence": null, "ms": 1910, "cost_usd": 1.77e-05}
+{"decider": "llm:glm-53-flash", "q": "look up what bubblewrap is and where its repo lives", "want": "websearch", "got": "websearch", "confidence": null, "ms": 2544, "cost_usd": 3.44e-05}
+{"decider": "llm:glm-53-flash", "q": "read https://www.rig.rs/ and tell me what it says about providers", "want": "fetchmd", "got": "fetchmd", "confidence": null, "ms": 946, "cost_usd": 2.15e-05}
+{"decider": "llm:glm-53-flash", "q": "turn https://en.wikipedia.org/wiki/ReAct_(software) into markdown and save it", "want": "fetchmd", "got": "fetchmd", "confidence": null, "ms": 1355, "cost_usd": 2e-05}
+{"decider": "llm:glm-53-flash", "q": "what does the page at https://docs.typesafe.ai/primitives say about Noul", "want": "fetchmd", "got": "fetchmd", "confidence": null, "ms": 878, "cost_usd": 1.98e-05}
+{"decider": "llm:glm-53-flash", "q": "scrape this article to text: https://example.com/post/42", "want": "fetchmd", "got": "fetchmd", "confidence": null, "ms": 1151, "cost_usd": 1.98e-05}
+{"decider": "llm:glm-53-flash", "q": "how many stars does the GitHub repo 0xPlaygrounds/rig have, use the API", "want": "curl-jq", "got": "curl-jq", "confidence": null, "ms": 1239, "cost_usd": 2.49e-05}
+{"decider": "llm:glm-53-flash", "q": "get the 'extract' field from https://en.wikipedia.org/api/rest_v1/page/summary/Houston", "want": "curl-jq", "got": "curl-jq", "confidence": null, "ms": 1759, "cost_usd": 2.2e-05}
+{"decider": "llm:glm-53-flash", "q": "is https://example.com up and how fast does it answer", "want": "curl-jq", "got": "curl-jq", "confidence": null, "ms": 2092, "cost_usd": 2.37e-05}
+{"decider": "llm:glm-53-flash", "q": "call the ctx health endpoint and show me the status field of the JSON", "want": "curl-jq", "got": "curl-jq", "confidence": null, "ms": 1727, "cost_usd": 1.81e-05}
+{"decider": "llm:glm-53-flash", "q": "fetch https://api.github.com/repos/langchain-ai/langgraph and print the open issue count", "want": "curl-jq", "got": "curl-jq", "confidence": null, "ms": 1030, "cost_usd": 2.14e-05}

@@ -1,0 +1,392 @@
+# Reusable provider + model registry for icm-agent-demo.
+# Source: "Fast Models" sheet (claude.ai/artifact/MtLUmEsMRFZxxiF4rdbabG, revision 15) plus the demo roster.
+# Every provider is OpenAI-compatible: POST {base_url}/chat/completions with "Authorization: Bearer $key_env".
+# Keys live in ~/.config/icm-agent-demo/keys.env. Prices are USD per 1M tokens (in, out) as listed on 2026-11-15.
+# Check ids against the live APIs with: python3 harness/registry.py verify
+
+[providers.openrouter]
+base_url = "https://openrouter.ai/api/v1"
+key_env  = "OPENROUTER_API_KEY"
+console  = "https://openrouter.ai/settings/keys"
+docs     = "https://openrouter.ai/docs"
+
+[providers.cerebras]
+base_url = "https://api.cerebras.ai/v1"
+key_env  = "CEREBRAS_API_KEY"
+console  = "https://cloud.cerebras.ai/"
+docs     = "https://inference-docs.cerebras.ai/"
+
+[providers.groq]
+base_url = "https://api.groq.com/openai/v1"
+key_env  = "GROQ_API_KEY"
+console  = "https://console.groq.com/"
+docs     = "https://console.groq.com/docs"
+max_tokens = 900          # free tier caps output tokens per minute
+
+[providers.celeris]
+base_url = "https://inference.celeris.ai/{model}/v1"   # the model id is part of the URL
+key_env  = "CELERIS_API_KEY"
+console  = "https://console.celeris.ai/"
+docs     = "https://docs.celeris.ai/"
+
+[providers.inception]
+base_url = "https://api.inceptionlabs.ai/v1"
+key_env  = "INCEPTION_API_KEY"
+console  = "https://platform.inceptionlabs.ai/"
+docs     = "https://docs.inceptionlabs.ai/"
+ends     = "2026-12-28"   # Mercury API shuts down
+
+[providers.gemini]
+base_url = "https://generativelanguage.googleapis.com/v1beta/openai"
+key_env  = "GEMINI_API_KEY"
+console  = "https://aistudio.google.com/apikey"
+docs     = "https://ai.google.dev/gemini-api/docs/openai"
+
+[providers.vercel]
+base_url = "https://ai-gateway.vercel.sh/v1"
+key_env  = "AI_GATEWAY_API_KEY"   # in the shell environment, not in keys.env
+console  = "https://vercel.com/dashboard"
+docs     = "https://vercel.com/docs/ai-gateway"
+
+[providers.morph]
+base_url = "https://api.morphllm.com/v1"
+key_env  = "MORPH_API_KEY"         # no key yet
+console  = "https://www.morphllm.com/dashboard"
+docs     = "https://docs.morphllm.com/"
+
+# ---- models -------------------------------------------------------------
+# kind: chat (general agent model) | apply | decision | classifier | stt | tts
+# tools: provider lists function calling for it. routes: [provider, id] pairs, preferred first.
+
+[models.muse-ember]
+name = "Muse Ember (Meta)"
+kind = "chat"
+tools = true
+aa = 36.0
+price = [0.10, 0.50]
+tier = "fast"
+routes = [["openrouter", "meta/muse-ember"], ["vercel", "meta/muse-ember"]]
+
+[models.deepseek-v41-flash-1017]
+name = "DeepSeek V4.1 Flash 1017"
+kind = "chat"
+tools = true
+aa = 32.6
+price = [0.15, 0.60]
+tier = "fast"
+routes = [["openrouter", "deepseek/deepseek-v4.1-flash-1017"]]
+
+[models.deepseek-v41-flash]
+name = "DeepSeek V4.1 Flash"
+kind = "chat"
+tools = true
+price = [0.051, 0.203]
+tier = "mid-high"
+routes = [["openrouter", "deepseek/deepseek-v4.1-flash"]]
+
+[models.glm-53]
+name = "GLM-5.3"
+kind = "chat"
+tools = true
+aa = 31.7
+price = [0.084, 3.60]
+tier = "fast"
+routes = [["openrouter", "z-ai/glm-5.3"]]
+
+[models.glm-53-flash]
+name = "GLM-5.3-Flash"
+kind = "chat"
+tools = true
+aa = 27.8
+price = [0.04, 0.078]
+tier = "mid"
+routes = [["openrouter", "z-ai/glm-5.3-flash"]]
+
+[models.glm-47]
+name = "GLM-4.7"
+kind = "chat"
+tools = true
+price = [0.40, 1.75]
+tier = "fast"
+routes = [["openrouter", "z-ai/glm-4.7"]]   # Cerebras speed only through Cerebras Code plans
+
+[models.muse-spark-open]
+name = "Muse Spark Open"
+kind = "chat"
+tools = true
+aa = 24.9
+price = [1.25, 4.25]
+tier = "fast"
+routes = [["openrouter", "meta/muse-spark-open"]]   # Groq direct is enterprise-only
+
+[models.qwen38-27b]
+name = "Qwen 3.8 27B"
+kind = "chat"
+tools = true
+aa = 20.1
+price = [0.99, 1.49]
+tier = "fast"
+routes = [["cerebras", "qwen-3.8-27b"], ["groq", "qwen/qwen3.8-27b"], ["openrouter", "qwen/qwen3.8-27b"]]
+
+[models.qwen38-flash]
+name = "Qwen 3.8 Flash"
+kind = "chat"
+tools = true
+price = [0.15, 0.47]
+tier = "mid"
+routes = [["openrouter", "qwen/qwen3.8-flash"]]
+
+[models.gpt-oss-120b]
+name = "GPT OSS 120B"
+kind = "chat"
+tools = true
+aa = 3.8
+price = [0.35, 0.75]
+tier = "fast"
+routes = [["cerebras", "gpt-oss-120b"], ["groq", "openai/gpt-oss-120b"], ["openrouter", "openai/gpt-oss-120b"]]
+
+[models.gpt-oss-20b]
+name = "GPT OSS 20B"
+kind = "chat"
+tools = true
+price = [0.075, 0.30]
+tier = "fast"
+local = true
+routes = [["groq", "openai/gpt-oss-20b"], ["openrouter", "openai/gpt-oss-20b"]]
+
+[models.minimax-m27]
+name = "MiniMax M2.7"
+kind = "chat"
+tools = true
+price = [0.21, 0.84]
+tier = "fast"
+routes = [["openrouter", "minimax/minimax-m2.7"]]
+
+[models.llama-33-70b]
+name = "Llama 3.3 70B"
+kind = "chat"
+tools = true
+price = [0.71, 0.71]
+tier = "fast"
+routes = [["openrouter", "meta-llama/llama-3.3-70b-instruct"]]
+
+[models.llama-31-8b]
+name = "Llama 3.1 8B"
+kind = "chat"
+tools = true
+price = [0.02, 0.04]
+tier = "fast"
+routes = [["openrouter", "meta-llama/llama-3.1-8b-instruct"]]   # Taalas chip version: demo only, API paused
+
+[models.nemotron-3-nano-30b]
+name = "Nemotron 3 Nano 30B A3B"
+kind = "chat"
+tools = true
+price = [0.06, 0.24]
+tier = "fast"
+local = true
+routes = [["openrouter", "nvidia/nemotron-3-nano-30b-a3b"]]
+
+[models.lfm3-17b]
+name = "LFM3-1.7B (Liquid)"
+kind = "chat"
+tools = true
+price = [0.08, 0.20]
+tier = "small"
+local = true
+routes = [["openrouter", "liquid/lfm-3-1.7b"], ["openrouter", "liquid/lfm-3-1.7b:free"]]
+
+[models.lfm25-24b]
+name = "LFM 2.5 24B"
+kind = "chat"
+tools = true
+price = [0.05, 0.70]
+tier = "small"
+routes = [["openrouter", "liquid/lfm-2.5-24b-a2b"]]
+
+[models.mercury-3]
+name = "Mercury 3"
+kind = "chat"
+tools = true
+price = [0.10, 0.35]
+tier = "fast"
+ends = "2026-12-28"
+routes = [["inception", "mercury-3"], ["vercel", "inception/mercury-3"]]
+
+[models.celeris-1-magnus]
+name = "Celeris-1 Magnus"
+kind = "chat"
+tools = true
+price = [0.20, 0.70]
+tier = "fast"
+routes = [["celeris", "celeris-1-magnus"]]
+
+[models.celeris-1]
+name = "Celeris-1"
+kind = "chat"
+tools = true
+price = [0.20, 0.70]
+tier = "fast"
+routes = [["celeris", "celeris-1"]]
+
+[models.hydrogen]
+name = "Gemini 4 Hydrogen"
+kind = "chat"
+tools = true
+price = [1.50, 7.50]
+tier = "top"
+routes = [["gemini", "gemini-4-hydrogen"], ["openrouter", "google/gemini-4-hydrogen"]]
+
+[models.terra-61]
+name = "GPT-6.1 Terra"
+kind = "chat"
+tools = true
+price = [1.00, 5.00]
+tier = "top"
+routes = [["openrouter", "openai/gpt-6.1-terra"]]
+
+[models.luna-6]
+name = "GPT-6 Luna"
+kind = "chat"
+tools = true
+price = [0.10, 0.50]
+tier = "top"
+routes = [["openrouter", "openai/gpt-6-luna"]]
+
+[models.luna-56]
+name = "GPT-5.6 Luna"
+kind = "chat"
+tools = true
+price = [0.20, 1.20]
+tier = "top"
+routes = [["openrouter", "openai/gpt-5.6-luna"]]
+
+[models.nex-n26]
+name = "Nex N2.6"
+kind = "chat"
+tools = true
+price = [0.12, 0.40]
+tier = "small"
+routes = [["openrouter", "nex-agi/nex-n2.6"]]
+
+[models.nex-n25-pro]
+name = "Nex N2.5 Pro"
+kind = "chat"
+tools = true
+price = [0.075, 0.25]
+tier = "small"
+routes = [["openrouter", "nex-agi/nex-n2.5-pro"]]
+
+[models.nex-n25-mini]
+# text mode only
+name = "Nex N2.5 Mini"
+kind = "chat"
+tools = false
+price = [0.025, 0.10]
+tier = "small"
+routes = [["openrouter", "nex-agi/nex-n2.5-mini"]]
+
+# ---- not general agent models (listed so the sheet is fully covered) ------
+
+[models.morph-v3-fast]
+name = "Morph V3 Fast"
+kind = "apply"
+tools = false
+price = [0.80, 1.20]
+routes = [["openrouter", "morph/morph-v3-fast"], ["vercel", "morph/morph-v3-fast"]]
+
+[models.morph-v3-large]
+name = "Morph V3 Large"
+kind = "apply"
+tools = false
+price = [0.90, 1.90]
+routes = [["openrouter", "morph/morph-v3-large"], ["vercel", "morph/morph-v3-large"]]
+
+[models.relace-apply-3]
+name = "Relace Apply 3"
+kind = "apply"
+tools = false
+price = [0.85, 1.25]
+routes = [["openrouter", "relace/relace-apply-3"]]
+
+[models.celeris-11-decision]
+name = "Celeris-1.1 Decision"
+kind = "decision"
+tools = false
+price = [0.004, 0.0]
+routes = [["celeris", "celeris-1.1-decision"]]   # own request shape, see docs.celeris.ai/decisions
+
+[models.mercury-decide]
+name = "Mercury Decide"
+kind = "decision"
+tools = false
+price = [0.02, 0.0]
+ends = "2026-12-28"
+routes = [["inception", "mercury-decide"]]
+
+[models.gpt-oss-safeguard-20b]
+name = "Safety GPT OSS 20B"
+kind = "classifier"
+tools = false
+price = [0.075, 0.30]
+routes = [["groq", "openai/gpt-oss-safeguard-20b"], ["openrouter", "openai/gpt-oss-safeguard-20b"]]
+
+[models.prompt-guard-86m]
+name = "Llama Prompt Guard 2 86M"
+kind = "classifier"
+tools = false
+price = [0.04, 0.04]
+routes = [["groq", "meta-llama/llama-prompt-guard-2-86m"]]
+
+[models.prompt-guard-22m]
+name = "Llama Prompt Guard 2 22M"
+kind = "classifier"
+tools = false
+price = [0.03, 0.03]
+routes = [["groq", "meta-llama/llama-prompt-guard-2-22m"]]
+
+[models.whisper-large-v3]
+name = "Whisper Large V3"
+kind = "stt"
+tools = false
+routes = [["groq", "whisper-large-v3"]]
+
+[models.whisper-large-v3-turbo]
+name = "Whisper Large V3 Turbo"
+kind = "stt"
+tools = false
+routes = [["groq", "whisper-large-v3-turbo"]]
+
+[models.orpheus-v1-english]
+name = "Orpheus V1 English"
+kind = "tts"
+tools = false
+routes = [["groq", "canopylabs/orpheus-v1-english"]]
+
+[models.orpheus-arabic-saudi]
+name = "Orpheus Arabic Saudi"
+kind = "tts"
+tools = false
+routes = [["groq", "canopylabs/orpheus-arabic-saudi"]]
+
+# In the sheet but with no usable API route: Taalas HC1 (API paused), Mercury Voice (Inception only, ends 2026-12-28,
+# not in the models list), Morph WarpGrep / Compact / System One (need a Morph key; ids unverified), Morph-hosted
+# chat models (same models are routed above through OpenRouter).
+
+# ---- decision models (System One API: POST {url} with state + typed questions; used by decision/gate.py) ----
+
+[deciders.jev]
+name = "Jev (TypeSafe)"
+url = "https://api.typesafe.ai/v1/systemone"
+model = "jev-latest"            # jev-1.14.0 on 2026-11-15
+key_env = "TYPESAFE_API_KEY"    # in the shell environment
+price = [0.042, 0.0]
+docs = "https://docs.typesafe.ai/llms.txt"
+
+[deciders.celeris]
+name = "Celeris-1.1 Decision"
+url = "https://inference.celeris.ai/celeris-1-decision/v1/systemone"
+model = "celeris-1.1-decision"
+key_env = "CELERIS_API_KEY"
+price = [0.004, 0.0]
+docs = "https://docs.celeris.ai/decisions"

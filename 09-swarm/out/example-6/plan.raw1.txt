@@ -1,0 +1,106 @@
+{
+  "summary": "Split the dashboard into six ordered fragments: header, health summary, models table, recent runs list, cost panel, and footer.",
+  "shared": {
+    "style_guide": "Plain black on white, only system fonts, no decorative elements, no icons, no emojis. All spacing uses the --fa-spacing variable. All colours use the defined CSS variables. Text is concise and factual.",
+    "css_variables": {
+      "--fa-fg": "#000",
+      "--fa-bg": "#fff",
+      "--fa-gray-1": "#333",
+      "--fa-gray-2": "#777",
+      "--fa-spacing": "0.5rem"
+    },
+    "heading_levels": "The page title uses <h1>. Section headings (if any) use <h2>."
+  },
+  "components": [
+    {
+      "id": "header",
+      "owner": "agent-1",
+      "purpose": "Show the page title, a one‑line description, and the date of the last run.",
+      "spec": "Root element: <section class=\"fa-component\" data-component=\"header\">. Inside, place <h1 class=\"fa-title\">Fast agents status dashboard</h1>. Follow with <p class=\"fa-description\">Status of fast agents for the demo.</p>. Finally add <p class=\"fa-date\">Last run: 2026-11-16</p>. Include a <style> block that sets margin‑bottom: var(--fa-spacing) on .fa-title, .fa-description, and .fa-date.",
+      "interfaces": ["Provides heading level h1 via .fa-title", "Uses CSS variables for colour and spacing"],
+      "acceptance": [
+        "Contains the text \"Fast agents status dashboard\"",
+        "Contains the text \"Status of fast agents for the demo.\"",
+        "Contains the text \"Last run: 2026-11-16\"",
+        "Root element has attribute data-component=\"header\""
+      ],
+      "budget_bytes": 2500
+    },
+    {
+      "id": "health-summary",
+      "owner": "agent-2",
+      "purpose": "Display the health summary of example tasks on both harnesses.",
+      "spec": "Root element: <section class=\"fa-component\" data-component=\"health-summary\">. Inside, a single <p class=\"fa-health\">Health summary: 9 of 9 example tasks pass on the rig harness, 9 of 9 on the LangChain fallback.</p>. Include a <style> that sets color: var(--fa-gray-1) and margin‑bottom: var(--fa-spacing) on .fa-health.",
+      "interfaces": ["Relies on CSS variables for colour and spacing"],
+      "acceptance": [
+        "Contains the text \"Health summary: 9 of 9 example tasks pass on the rig harness, 9 of 9 on the LangChain fallback\"",
+        "Root element has attribute data-component=\"health-summary\""
+      ],
+      "budget_bytes": 2500
+    },
+    {
+      "id": "models-table",
+      "owner": "agent-3",
+      "purpose": "Show a table of model details: alias, provider, median latency, and price per 1M tokens.",
+      "spec": "Root element: <section class=\"fa-component\" data-component=\"models-table\">. Inside, a <table class=\"fa-models\"> with <thead> containing a row of headings: Alias Provider Latency Price‑in Price‑out. <tbody> has two rows: \"gpt-oss-120b Cerebras ~1 s $0.35 $0.75\" and \"mercury-3 Inception n/a $0.10 $0.35\". Use <td class=\"fa-cell\"> for each cell. Include a <style> that sets border-collapse: collapse; font-size: 0.9rem; and sets padding: var(--fa-spacing) on .fa-cell, and color: var(--fa-gray-2) on the header row.",
+      "interfaces": ["Provides table layout using CSS variables", "Uses class .fa-models for styling"],
+      "acceptance": [
+        "Contains the cell text \"gpt-oss-120b\"",
+        "Contains the cell text \"Cerebras\"",
+        "Contains the cell text \"~1 s\"",
+        "Contains the cell text \"$0.35\"",
+        "Contains the cell text \"$0.75\"",
+        "Contains the cell text \"mercury-3\"",
+        "Contains the cell text \"Inception\"",
+        "Contains the cell text \"n/a\"",
+        "Contains the cell text \"$0.10\"",
+        "Contains the cell text \"$0.35\"",
+        "Root element has attribute data-component=\"models-table\""
+      ],
+      "budget_bytes": 3000
+    },
+    {
+      "id": "recent-runs",
+      "owner": "agent-4",
+      "purpose": "List the five recent run entries with task, harness, steps, wall time, and result.",
+      "spec": "Root element: <section class=\"fa-component\" data-component=\"recent-runs\">. Inside, a <ul class=\"fa-runs\"> with five <li class=\"fa-run\"> items exactly: \"web-1 rig 4 3.1 s pass\", \"files-1 rig 3 2.2 s pass\", \"memory-1 langchain 5 4.8 s pass\", \"web-2 langchain 6 6.0 s pass\", \"swarm status-page-6 swarms-rs 7 2.8 s pass\". Add a <style> that sets list-style: none; margin:0; padding:0; and margin‑bottom: var(--fa-spacing) on .fa-run.",
+      "interfaces": ["Provides list of recent runs", "Uses CSS variables for spacing"],
+      "acceptance": [
+        "Contains the list item \"web-1 rig 4 3.1 s pass\"",
+        "Contains the list item \"files-1 rig 3 2.2 s pass\"",
+        "Contains the list item \"memory-1 langchain 5 4.8 s pass\"",
+        "Contains the list item \"web-2 langchain 6 6.0 s pass\"",
+        "Contains the list item \"swarm status-page-6 swarms-rs 7 2.8 s pass\"",
+        "Root element has attribute data-component=\"recent-runs\""
+      ],
+      "budget_bytes": 3000
+    },
+    {
+      "id": "cost-panel",
+      "owner": "agent-5",
+      "purpose": "Show total spend today, cost per task, and cheapest model information.",
+      "spec": "Root element: <section class=\"fa-component\" data-component=\"cost-panel\">. Inside, three <p class=\"fa-cost\"> elements: \"Total spend today $0.06\", \"Cost per task about $0.007\", \"Cheapest model mercury-3 ($0.10/$0.35 per 1M tokens)\". Include a <style> that sets color: var(--fa-gray-1) and margin‑bottom: var(--fa-spacing) on .fa-cost.",
+      "interfaces": ["Uses CSS variables for colour and spacing"],
+      "acceptance": [
+        "Contains the text \"Total spend today $0.06\"",
+        "Contains the text \"Cost per task about $0.007\"",
+        "Contains the text \"Cheapest model mercury-3 ($0.10/$0.35 per 1M tokens)\"",
+        "Root element has attribute data-component=\"cost-panel\""
+      ],
+      "budget_bytes": 2500
+    },
+    {
+      "id": "footer",
+      "owner": "agent-6",
+      "purpose": "Provide trace locations and replay command information.",
+      "spec": "Root element: <section class=\"fa-component\" data-component=\"footer\">. Inside, two <p class=\"fa-footer\"> lines: \"Traces live at 04-traces/live, saved at 04-traces/saved\" and \"Replay a trace with: bin/replay web_2\". Include a <style> that sets font-size: 0.8rem; color: var(--fa-gray-2); margin‑bottom: var(--fa-spacing) on .fa-footer.",
+      "interfaces": ["Uses CSS variables for colour and spacing"],
+      "acceptance": [
+        "Contains the text \"Traces live at 04-traces/live, saved at 04-traces/saved\"",
+        "Contains the text \"Replay a trace with: bin/replay web_2\"",
+        "Root element has attribute data-component=\"footer\""
+      ],
+      "budget_bytes": 2500
+    }
+  ]
+}

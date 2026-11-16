@@ -1,0 +1,468 @@
+{
+  "run": "20261116-024307-swarm_status_page_6_gpt_oss_120b",
+  "brief": "status-page",
+  "kind": "ui",
+  "agents": 6,
+  "model": "gpt-oss-120b",
+  "provider": "cerebras",
+  "harness": "swarms-rs 0.3.0",
+  "ok": true,
+  "wall_ms": 2243,
+  "model_calls": 7,
+  "tokens_in": 5545,
+  "tokens_out": 5828,
+  "cost_usd": 0.006312,
+  "checks": {
+    "passed": 78,
+    "failed": 0,
+    "not_checkable": 0
+  },
+  "redone": [],
+  "output": "09-swarm/out/example-6/index.html",
+  "components": [
+    {
+      "id": "header",
+      "owner": "agent-1",
+      "bytes": 355,
+      "budget_bytes": 2500,
+      "ok": true,
+      "checks": [
+        {
+          "name": "non_empty",
+          "pass": true,
+          "detail": "355 bytes"
+        },
+        {
+          "name": "size_budget",
+          "pass": true,
+          "detail": "355 of 2500 bytes (+25% grace)"
+        },
+        {
+          "name": "root_element",
+          "pass": true,
+          "detail": "data-component=\"header\""
+        },
+        {
+          "name": "class_prefix",
+          "pass": true,
+          "detail": "4 classes, all fa-"
+        },
+        {
+          "name": "no_script",
+          "pass": true,
+          "detail": "no <script>"
+        },
+        {
+          "name": "no_shared_override",
+          "pass": true,
+          "detail": "<style> does not target .fa-component"
+        },
+        {
+          "name": "no_external_assets",
+          "pass": true,
+          "detail": "no <link>, @import or http src/href/url"
+        },
+        {
+          "name": "no_page_tags",
+          "pass": true,
+          "detail": "fragment, not a page"
+        },
+        {
+          "name": "acceptance: Contains the text \"Fast agents status dashboard\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the text \"Status of fast agents for the demo.\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the text \"Last run: 2026-11-16\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Root element has attribute data-component=\"header\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        }
+      ]
+    },
+    {
+      "id": "health-summary",
+      "owner": "agent-2",
+      "bytes": 311,
+      "budget_bytes": 2500,
+      "ok": true,
+      "checks": [
+        {
+          "name": "non_empty",
+          "pass": true,
+          "detail": "311 bytes"
+        },
+        {
+          "name": "size_budget",
+          "pass": true,
+          "detail": "311 of 2500 bytes (+25% grace)"
+        },
+        {
+          "name": "root_element",
+          "pass": true,
+          "detail": "data-component=\"health-summary\""
+        },
+        {
+          "name": "class_prefix",
+          "pass": true,
+          "detail": "2 classes, all fa-"
+        },
+        {
+          "name": "no_script",
+          "pass": true,
+          "detail": "no <script>"
+        },
+        {
+          "name": "no_shared_override",
+          "pass": true,
+          "detail": "<style> does not target .fa-component"
+        },
+        {
+          "name": "no_external_assets",
+          "pass": true,
+          "detail": "no <link>, @import or http src/href/url"
+        },
+        {
+          "name": "no_page_tags",
+          "pass": true,
+          "detail": "fragment, not a page"
+        },
+        {
+          "name": "acceptance: Contains the text \"Health summary: 9 of 9 example tasks pass on the rig harness, 9 of 9 on the LangChain fallback\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Root element has attribute data-component=\"health-summary\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        }
+      ]
+    },
+    {
+      "id": "models-table",
+      "owner": "agent-3",
+      "bytes": 970,
+      "budget_bytes": 3000,
+      "ok": true,
+      "checks": [
+        {
+          "name": "non_empty",
+          "pass": true,
+          "detail": "970 bytes"
+        },
+        {
+          "name": "size_budget",
+          "pass": true,
+          "detail": "970 of 3000 bytes (+25% grace)"
+        },
+        {
+          "name": "root_element",
+          "pass": true,
+          "detail": "data-component=\"models-table\""
+        },
+        {
+          "name": "class_prefix",
+          "pass": true,
+          "detail": "12 classes, all fa-"
+        },
+        {
+          "name": "no_script",
+          "pass": true,
+          "detail": "no <script>"
+        },
+        {
+          "name": "no_shared_override",
+          "pass": true,
+          "detail": "<style> does not target .fa-component"
+        },
+        {
+          "name": "no_external_assets",
+          "pass": true,
+          "detail": "no <link>, @import or http src/href/url"
+        },
+        {
+          "name": "no_page_tags",
+          "pass": true,
+          "detail": "fragment, not a page"
+        },
+        {
+          "name": "acceptance: Contains the cell text \"gpt-oss-120b\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the cell text \"Cerebras\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the cell text \"~1 s\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the cell text \"$0.35\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the cell text \"$0.75\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the cell text \"mercury-3\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the cell text \"Inception\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the cell text \"n/a\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the cell text \"$0.10\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the cell text \"$0.35\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Root element has attribute data-component=\"models-table\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        }
+      ]
+    },
+    {
+      "id": "recent-runs",
+      "owner": "agent-4",
+      "bytes": 564,
+      "budget_bytes": 3000,
+      "ok": true,
+      "checks": [
+        {
+          "name": "non_empty",
+          "pass": true,
+          "detail": "564 bytes"
+        },
+        {
+          "name": "size_budget",
+          "pass": true,
+          "detail": "564 of 3000 bytes (+25% grace)"
+        },
+        {
+          "name": "root_element",
+          "pass": true,
+          "detail": "data-component=\"recent-runs\""
+        },
+        {
+          "name": "class_prefix",
+          "pass": true,
+          "detail": "7 classes, all fa-"
+        },
+        {
+          "name": "no_script",
+          "pass": true,
+          "detail": "no <script>"
+        },
+        {
+          "name": "no_shared_override",
+          "pass": true,
+          "detail": "<style> does not target .fa-component"
+        },
+        {
+          "name": "no_external_assets",
+          "pass": true,
+          "detail": "no <link>, @import or http src/href/url"
+        },
+        {
+          "name": "no_page_tags",
+          "pass": true,
+          "detail": "fragment, not a page"
+        },
+        {
+          "name": "acceptance: Contains the list item \"web-1 rig 4 3.1 s pass\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the list item \"files-1 rig 3 2.2 s pass\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the list item \"memory-1 langchain 5 4.8 s pass\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the list item \"web-2 langchain 6 6.0 s pass\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the list item \"swarm status-page-6 swarms-rs 7 2.8 s pass\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Root element has attribute data-component=\"recent-runs\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        }
+      ]
+    },
+    {
+      "id": "cost-panel",
+      "owner": "agent-5",
+      "bytes": 362,
+      "budget_bytes": 2500,
+      "ok": true,
+      "checks": [
+        {
+          "name": "non_empty",
+          "pass": true,
+          "detail": "362 bytes"
+        },
+        {
+          "name": "size_budget",
+          "pass": true,
+          "detail": "362 of 2500 bytes (+25% grace)"
+        },
+        {
+          "name": "root_element",
+          "pass": true,
+          "detail": "data-component=\"cost-panel\""
+        },
+        {
+          "name": "class_prefix",
+          "pass": true,
+          "detail": "4 classes, all fa-"
+        },
+        {
+          "name": "no_script",
+          "pass": true,
+          "detail": "no <script>"
+        },
+        {
+          "name": "no_shared_override",
+          "pass": true,
+          "detail": "<style> does not target .fa-component"
+        },
+        {
+          "name": "no_external_assets",
+          "pass": true,
+          "detail": "no <link>, @import or http src/href/url"
+        },
+        {
+          "name": "no_page_tags",
+          "pass": true,
+          "detail": "fragment, not a page"
+        },
+        {
+          "name": "acceptance: Contains the text \"Total spend today $0.06\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the text \"Cost per task about $0.007\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the text \"Cheapest model mercury-3 ($0.10/$0.35 per 1M tokens)\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Root element has attribute data-component=\"cost-panel\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        }
+      ]
+    },
+    {
+      "id": "footer",
+      "owner": "agent-6",
+      "bytes": 350,
+      "budget_bytes": 2500,
+      "ok": true,
+      "checks": [
+        {
+          "name": "non_empty",
+          "pass": true,
+          "detail": "350 bytes"
+        },
+        {
+          "name": "size_budget",
+          "pass": true,
+          "detail": "350 of 2500 bytes (+25% grace)"
+        },
+        {
+          "name": "root_element",
+          "pass": true,
+          "detail": "data-component=\"footer\""
+        },
+        {
+          "name": "class_prefix",
+          "pass": true,
+          "detail": "3 classes, all fa-"
+        },
+        {
+          "name": "no_script",
+          "pass": true,
+          "detail": "no <script>"
+        },
+        {
+          "name": "no_shared_override",
+          "pass": true,
+          "detail": "<style> does not target .fa-component"
+        },
+        {
+          "name": "no_external_assets",
+          "pass": true,
+          "detail": "no <link>, @import or http src/href/url"
+        },
+        {
+          "name": "no_page_tags",
+          "pass": true,
+          "detail": "fragment, not a page"
+        },
+        {
+          "name": "acceptance: Contains the text \"Traces live at 04-traces/live, saved at 04-traces/saved\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Contains the text \"Replay a trace with: bin/replay web_2\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        },
+        {
+          "name": "acceptance: Root element has attribute data-component=\"footer\"",
+          "pass": true,
+          "detail": "all quoted strings present"
+        }
+      ]
+    }
+  ]
+}
